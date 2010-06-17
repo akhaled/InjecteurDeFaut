@@ -14,7 +14,6 @@ class Fault_factory{
 
 	private:
 	QList<Fault *>  faults;
-	Fault *fault;
 };
 
 #endif

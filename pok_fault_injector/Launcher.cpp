@@ -8,11 +8,10 @@
 //#define QEMU_COMMAND "qemu -cdrom xubuntu-10.04-desktop-i386.iso"
 
 Launcher::Launcher(Log_creator* log, const QString& pok_ap_path,
-                   int loop_nb): log_creator(log),
-                                 pok_appli_path(pok_ap_path),
+                   int loop_nb): pok_appli_path(pok_ap_path),
                                  obs_loops_nb(loop_nb)
 {
-
+  log_creator = log;
   // Create the observer
   observer= new Observer();
 }
@@ -51,8 +50,15 @@ QProcess::ProcessState Launcher::qemu_state() {
 
 void Launcher::start_observation(Fault* fault) {
 
+  std::cout << "set_fault" << std::endl;
+  if(log_creator == NULL)
+    {
+      std::cout << "log NULL" << std::endl;
+    }
   log_creator->set_fault(fault);
 
+
+  std::cout << "run QEMU" << std::endl;
   // Launch QEMU with POK
   if(!run_qemu())
     {

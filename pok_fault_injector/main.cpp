@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 
   /*while(current_fault != NULL)
     {
+
       launcher.start_observation(current_fault);
       current_fault = injector.inject();
     }*/

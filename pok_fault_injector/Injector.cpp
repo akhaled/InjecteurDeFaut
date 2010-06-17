@@ -18,6 +18,7 @@ Injector::Injector(Log_creator *Log, const QString & config_file, const QString 
     initialize_fault_list(file_entry);   
     injector_code_path_file_name = pok_appli_path + "/hello1.c";
     observer_code_path_file_name = pok_appli_path + "/hello2.c";
+
 }
 
 QString Injector::get_pok_appli_path(){
@@ -211,6 +212,5 @@ Fault* Injector::inject(){
 Injector::~Injector(){
     delete factory;
     delete source;
-    delete current_fault;
 }
 
