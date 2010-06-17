@@ -11,10 +11,10 @@ class Launcher
 {
 private:
   Log_creator* log_creator;
-  QString pok_appli_path;
-  QProcess qemu_process;
+  QString pok_appli_path;//!<le chemin du répertoire contenant l’image de POK à lancer sur QEMU
+  QProcess qemu_process;//!<le processus du lancement de QEMU
   Observer* observer;
-  int obs_loops_nb;
+  int obs_loops_nb;//!
 
 
 public:

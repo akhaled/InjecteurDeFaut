@@ -14,12 +14,20 @@
 #define RAM_START 0
 #define EXIT_COMMAND "quit"
 
-
+/*!
+*  \brief Constructeur
+*
+*  Constructeur de la classe Observer 
+*
+*/
 Observer::Observer() {
   socket_path = QString(SOCKET_PATH);
   qemu_server.listen(socket_path);
 }
 
+/*!
+*  \brief Destructeur 
+*/
 Observer::~Observer()
 {
   qemu_server.close();
@@ -27,9 +35,13 @@ Observer::~Observer()
   delete qemu_socket;
 }
 
-
-// Wait for QEMU to connect to our local server: qemu_server
-// Return false if we waited too long
+/*!
+*  \brief connection à QEMU
+*
+*  Methode qui connecte à QEMU via le unix local socket
+*
+*  \return TRUE si QEMU est connecté, sinon retourne FALSE
+*/
 bool Observer::connect_to_qemu() {
   int time = 0;
 
@@ -48,11 +60,22 @@ bool Observer::connect_to_qemu() {
   return (time < 10);
 }
 
-
+/*!
+*  \brief disconnection à QEMU
+*
+*  Methode qui disconnecte à QEMU
+*
+*/
 void Observer::disconnect_from_qemu() {
   qemu_socket->disconnectFromServer();
 }
 
+/*!
+*  \brief  arrêter QEMU
+*
+*  Methode qui termine la processus de QEMU
+*
+*/
 void Observer::exit_qemu() {
   QDataStream in(qemu_socket);
   QString command(EXIT_COMMAND);
@@ -65,7 +88,12 @@ void Observer::exit_qemu() {
 
 }
 
-// Copy QEMU RAM into a file
+/*!
+*  \brief creer un fichier de ram
+*
+*  Methode qui copier les ram dans un fichier
+*
+*/
 void Observer::ram_to_file(const QString& file_path)
 {  
   // int readen = 0;

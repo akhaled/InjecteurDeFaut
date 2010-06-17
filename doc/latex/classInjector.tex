@@ -1,0 +1,163 @@
+\hypertarget{classInjector}{
+\section{Référence de la classe Injector}
+\label{classInjector}\index{Injector@{Injector}}
+}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInjector_a2db6aa9ac9175351799a7ed19a33b9e5}{Injector} (\hyperlink{classLog__creator}{Log\_\-creator} $\ast$Log, const QString \&config\_\-file, const QString \&file\_\-entry)
+\begin{DoxyCompactList}\small\item\em Constructeur. \item\end{DoxyCompactList}\item 
+\hypertarget{classInjector_a904aaf462f9ebb0462418aa96d5f09fa}{
+\hyperlink{classInjector_a904aaf462f9ebb0462418aa96d5f09fa}{$\sim$Injector} ()}
+\label{classInjector_a904aaf462f9ebb0462418aa96d5f09fa}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \item\end{DoxyCompactList}\item 
+QString \hyperlink{classInjector_a5e00ba8b08dc5fbd87e4607a2687655f}{get\_\-pok\_\-appli\_\-path} ()
+\begin{DoxyCompactList}\small\item\em return pok\_\-appli\_\-path \item\end{DoxyCompactList}\item 
+void \hyperlink{classInjector_a097acccd64ff95a0763d99c51a7ab2e7}{initialize\_\-environment} (const QString \&config\_\-file, const QString \&file\_\-entry)
+\begin{DoxyCompactList}\small\item\em preparation de l'environnement \item\end{DoxyCompactList}\item 
+bool \hyperlink{classInjector_a2dab7e4a6ff7daef39596f64ad76ee5e}{fault\_\-file\_\-is\_\-valid} (QString id\_\-fault, QString id\_\-cible)
+\begin{DoxyCompactList}\small\item\em verifier le validité du fichier .fault \item\end{DoxyCompactList}\item 
+void \hyperlink{classInjector_ae4a9416054f13e1a5c84c475ae4670d2}{initialize\_\-fault\_\-list} (const QString \&file\_\-entry)
+\begin{DoxyCompactList}\small\item\em preparation de l'environnement \item\end{DoxyCompactList}\item 
+\hyperlink{classFault}{Fault} $\ast$ \hyperlink{classInjector_ae60e299c7e4e5cfc2537ddb0a8a56358}{inject} ()
+\begin{DoxyCompactList}\small\item\em injection de la faute et generation du code POK \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classInjector_a2db6aa9ac9175351799a7ed19a33b9e5}{
+\index{Injector@{Injector}!Injector@{Injector}}
+\index{Injector@{Injector}!Injector@{Injector}}
+\subsubsection[{Injector}]{\setlength{\rightskip}{0pt plus 5cm}Injector::Injector (
+\begin{DoxyParamCaption}
+\item[{{\bf Log\_\-creator} $\ast$}]{ Log, }
+\item[{const QString \&}]{ config\_\-file, }
+\item[{const QString \&}]{ file\_\-entry}
+\end{DoxyParamCaption}
+)}}
+\label{classInjector_a2db6aa9ac9175351799a7ed19a33b9e5}
+
+
+Constructeur. 
+
+Constructeur de la classe \hyperlink{classInjector}{Injector}
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em $\ast$Log}]: le rapport \item[{\em \&}]config\_\-file : le chemin absolue du fichier de configuration \item[{\em \&}]file\_\-entry : l'entrée du fichier \end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classInjector_a2dab7e4a6ff7daef39596f64ad76ee5e}{
+\index{Injector@{Injector}!fault\_\-file\_\-is\_\-valid@{fault\_\-file\_\-is\_\-valid}}
+\index{fault\_\-file\_\-is\_\-valid@{fault\_\-file\_\-is\_\-valid}!Injector@{Injector}}
+\subsubsection[{fault\_\-file\_\-is\_\-valid}]{\setlength{\rightskip}{0pt plus 5cm}bool Injector::fault\_\-file\_\-is\_\-valid (
+\begin{DoxyParamCaption}
+\item[{QString}]{ id\_\-fault, }
+\item[{QString}]{ id\_\-target}
+\end{DoxyParamCaption}
+)}}
+\label{classInjector_a2dab7e4a6ff7daef39596f64ad76ee5e}
+
+
+verifier le validité du fichier .fault 
+
+Methode qui permet de verifier le fichier .fault correspondant à la faute en cours existe
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em id\_\-fault}]: identificateur du type de faute \item[{\em id\_\-target}]: identificateur de la cible de la faute \end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si le fichier .fault est valide, sinon retourne FALSE 
+\end{DoxyReturn}
+\hypertarget{classInjector_a5e00ba8b08dc5fbd87e4607a2687655f}{
+\index{Injector@{Injector}!get\_\-pok\_\-appli\_\-path@{get\_\-pok\_\-appli\_\-path}}
+\index{get\_\-pok\_\-appli\_\-path@{get\_\-pok\_\-appli\_\-path}!Injector@{Injector}}
+\subsubsection[{get\_\-pok\_\-appli\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}QString Injector::get\_\-pok\_\-appli\_\-path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classInjector_a5e00ba8b08dc5fbd87e4607a2687655f}
+
+
+return pok\_\-appli\_\-path 
+
+Methode qui renvoie pok\_\-appli\_\-path
+
+\begin{DoxyReturn}{Renvoie}
+QString pok\_\-appli\_\-path 
+\end{DoxyReturn}
+\hypertarget{classInjector_a097acccd64ff95a0763d99c51a7ab2e7}{
+\index{Injector@{Injector}!initialize\_\-environment@{initialize\_\-environment}}
+\index{initialize\_\-environment@{initialize\_\-environment}!Injector@{Injector}}
+\subsubsection[{initialize\_\-environment}]{\setlength{\rightskip}{0pt plus 5cm}void Injector::initialize\_\-environment (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{ config\_\-file, }
+\item[{const QString \&}]{ file\_\-entry}
+\end{DoxyParamCaption}
+)}}
+\label{classInjector_a097acccd64ff95a0763d99c51a7ab2e7}
+
+
+preparation de l'environnement 
+
+Methode qui initializer les parametres de l'environnement
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em \&}]config\_\-file : le chemin absolue du fichier de configuration \item[{\em \&}]file\_\-entry : l'entrée du fichier \end{DoxyParams}
+
+
+Verifie que le fichier config existe
+
+verifie l'existence des chemins indiques dans le fichier
+
+verifie que le fichier donne en entrée existe 
+
+\hypertarget{classInjector_ae4a9416054f13e1a5c84c475ae4670d2}{
+\index{Injector@{Injector}!initialize\_\-fault\_\-list@{initialize\_\-fault\_\-list}}
+\index{initialize\_\-fault\_\-list@{initialize\_\-fault\_\-list}!Injector@{Injector}}
+\subsubsection[{initialize\_\-fault\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}void Injector::initialize\_\-fault\_\-list (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{ file\_\-entry}
+\end{DoxyParamCaption}
+)}}
+\label{classInjector_ae4a9416054f13e1a5c84c475ae4670d2}
+
+
+preparation de l'environnement 
+
+Methode qui initializer les parametres de l'environnement
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em \&}]config\_\-file : le chemin absolue du fichier de configuration \item[{\em \&}]file\_\-entry : l'entrée du fichier \end{DoxyParams}
+\hypertarget{classInjector_ae60e299c7e4e5cfc2537ddb0a8a56358}{
+\index{Injector@{Injector}!inject@{inject}}
+\index{inject@{inject}!Injector@{Injector}}
+\subsubsection[{inject}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Fault} $\ast$ Injector::inject (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classInjector_ae60e299c7e4e5cfc2537ddb0a8a56358}
+
+
+injection de la faute et generation du code POK 
+
+Methode qui injecte la faute et genere le code POK
+
+\begin{DoxyReturn}{Renvoie}
+Fault$\ast$ current\_\-fault 
+\end{DoxyReturn}
+
+
+generation code POK 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Injector.hh\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Injector.cpp\end{DoxyCompactItemize}

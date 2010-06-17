@@ -1,0 +1,124 @@
+\hypertarget{classLog__creator}{
+\section{Référence de la classe Log\_\-creator}
+\label{classLog__creator}\index{Log\_\-creator@{Log\_\-creator}}
+}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLog__creator_a9b41865df79c41c8924597575919eb10}{Log\_\-creator} (const QString \&path\_\-to\_\-journal)
+\begin{DoxyCompactList}\small\item\em Constructeur. \item\end{DoxyCompactList}\item 
+\hypertarget{classLog__creator_af63167b0de7f559c4c67430662ae2b45}{
+\hyperlink{classLog__creator_af63167b0de7f559c4c67430662ae2b45}{$\sim$Log\_\-creator} ()}
+\label{classLog__creator_af63167b0de7f559c4c67430662ae2b45}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \item\end{DoxyCompactList}\item 
+bool \hyperlink{classLog__creator_a452a9ccc31cb82783cd70cc6a8e6b68f}{parse\_\-ram} (const QString \&file\_\-path)
+\begin{DoxyCompactList}\small\item\em cherche dans ram les variables \item\end{DoxyCompactList}\item 
+void \hyperlink{classLog__creator_acc9b8ccb299f9733b4065b61c297b6e0}{write\_\-obs\_\-vars} ()
+\begin{DoxyCompactList}\small\item\em écrit les paramètres dans le rapport. \item\end{DoxyCompactList}\item 
+void \hyperlink{classLog__creator_a6bbc059eb7b6825439f31f00d182f8b1}{write\_\-error} (const QString \&error\_\-message)
+\begin{DoxyCompactList}\small\item\em écrit les messages des erreurs dans le rapport. \item\end{DoxyCompactList}\item 
+void \hyperlink{classLog__creator_a347fe83a5cd3535f5065649a16bd9ab6}{write\_\-message} (const QString \&message)
+\begin{DoxyCompactList}\small\item\em écrit les messages dans le rapport. \item\end{DoxyCompactList}\item 
+void \hyperlink{classLog__creator_ae12b4c588f3c5d69182e9c0433f23376}{set\_\-fault} (\hyperlink{classFault}{Fault} $\ast$f)
+\begin{DoxyCompactList}\small\item\em mise à jour de fault \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classLog__creator_a9b41865df79c41c8924597575919eb10}{
+\index{Log\_\-creator@{Log\_\-creator}!Log\_\-creator@{Log\_\-creator}}
+\index{Log\_\-creator@{Log\_\-creator}!Log_creator@{Log\_\-creator}}
+\subsubsection[{Log\_\-creator}]{\setlength{\rightskip}{0pt plus 5cm}Log\_\-creator::Log\_\-creator (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{ path\_\-to\_\-journal}
+\end{DoxyParamCaption}
+)}}
+\label{classLog__creator_a9b41865df79c41c8924597575919eb10}
+
+
+Constructeur. 
+
+Constructeur de la classe \hyperlink{classLog__creator}{Log\_\-creator} qui prend en paramètre le chemin vers le fichier qui contiendra le rapport
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em \&path\_\-to\_\-journal}]: le chemin vers le fichier du rapport \end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classLog__creator_a452a9ccc31cb82783cd70cc6a8e6b68f}{
+\index{Log\_\-creator@{Log\_\-creator}!parse\_\-ram@{parse\_\-ram}}
+\index{parse\_\-ram@{parse\_\-ram}!Log_creator@{Log\_\-creator}}
+\subsubsection[{parse\_\-ram}]{\setlength{\rightskip}{0pt plus 5cm}bool Log\_\-creator::parse\_\-ram (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{ file\_\-path}
+\end{DoxyParamCaption}
+)}}
+\label{classLog__creator_a452a9ccc31cb82783cd70cc6a8e6b68f}
+
+
+cherche dans ram les variables 
+
+Methode qui qui cherche dans ram les variables de obs\_\-vars et qui remplie values avec ces dernières
+
+\begin{DoxyReturn}{Renvoie}
+TRUE si les variables ont bien été trouvées, sinon retourne FALSE 
+\end{DoxyReturn}
+\hypertarget{classLog__creator_ae12b4c588f3c5d69182e9c0433f23376}{
+\index{Log\_\-creator@{Log\_\-creator}!set\_\-fault@{set\_\-fault}}
+\index{set\_\-fault@{set\_\-fault}!Log_creator@{Log\_\-creator}}
+\subsubsection[{set\_\-fault}]{\setlength{\rightskip}{0pt plus 5cm}void Log\_\-creator::set\_\-fault (
+\begin{DoxyParamCaption}
+\item[{{\bf Fault} $\ast$}]{ f}
+\end{DoxyParamCaption}
+)}}
+\label{classLog__creator_ae12b4c588f3c5d69182e9c0433f23376}
+
+
+mise à jour de fault 
+
+Methode qui met à jour l’attribut fault \hypertarget{classLog__creator_a6bbc059eb7b6825439f31f00d182f8b1}{
+\index{Log\_\-creator@{Log\_\-creator}!write\_\-error@{write\_\-error}}
+\index{write\_\-error@{write\_\-error}!Log_creator@{Log\_\-creator}}
+\subsubsection[{write\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}void Log\_\-creator::write\_\-error (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{ error\_\-message}
+\end{DoxyParamCaption}
+)}}
+\label{classLog__creator_a6bbc059eb7b6825439f31f00d182f8b1}
+
+
+écrit les messages des erreurs dans le rapport. 
+
+Methode qui écrit les messages des erreur dans le rapport et l’affiche également à l’écran. \hypertarget{classLog__creator_a347fe83a5cd3535f5065649a16bd9ab6}{
+\index{Log\_\-creator@{Log\_\-creator}!write\_\-message@{write\_\-message}}
+\index{write\_\-message@{write\_\-message}!Log_creator@{Log\_\-creator}}
+\subsubsection[{write\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}void Log\_\-creator::write\_\-message (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{ message}
+\end{DoxyParamCaption}
+)}}
+\label{classLog__creator_a347fe83a5cd3535f5065649a16bd9ab6}
+
+
+écrit les messages dans le rapport. 
+
+Methode qui écrit les messages dans le rapport et l’affiche également à l’écran. \hypertarget{classLog__creator_acc9b8ccb299f9733b4065b61c297b6e0}{
+\index{Log\_\-creator@{Log\_\-creator}!write\_\-obs\_\-vars@{write\_\-obs\_\-vars}}
+\index{write\_\-obs\_\-vars@{write\_\-obs\_\-vars}!Log_creator@{Log\_\-creator}}
+\subsubsection[{write\_\-obs\_\-vars}]{\setlength{\rightskip}{0pt plus 5cm}void Log\_\-creator::write\_\-obs\_\-vars (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classLog__creator_acc9b8ccb299f9733b4065b61c297b6e0}
+
+
+écrit les paramètres dans le rapport. 
+
+Methode qui écrit dans le fichier de rapport les paramètres d’observation et leurs valeurs 
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Log\_\-creator.hh\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Log\_\-creator.cpp\end{DoxyCompactItemize}

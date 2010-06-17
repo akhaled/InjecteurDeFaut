@@ -1,0 +1,57 @@
+\hypertarget{classFault__factory}{
+\section{Référence de la classe Fault\_\-factory}
+\label{classFault__factory}\index{Fault\_\-factory@{Fault\_\-factory}}
+}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classFault__factory_ac896df814cedccb228e757a44efc7a8a}{add\_\-fault} (QString id\_\-fault, QString id\_\-target)
+\begin{DoxyCompactList}\small\item\em Constructeur. \item\end{DoxyCompactList}\item 
+\hyperlink{classFault}{Fault} $\ast$ \hyperlink{classFault__factory_a58a48bac9b2395b916200542a3ca12f4}{next\_\-fault} ()
+\begin{DoxyCompactList}\small\item\em return next fault \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classFault__factory_ac896df814cedccb228e757a44efc7a8a}{
+\index{Fault\_\-factory@{Fault\_\-factory}!add\_\-fault@{add\_\-fault}}
+\index{add\_\-fault@{add\_\-fault}!Fault_factory@{Fault\_\-factory}}
+\subsubsection[{add\_\-fault}]{\setlength{\rightskip}{0pt plus 5cm}void Fault\_\-factory::add\_\-fault (
+\begin{DoxyParamCaption}
+\item[{QString}]{ id\_\-fault, }
+\item[{QString}]{ id\_\-target}
+\end{DoxyParamCaption}
+)}}
+\label{classFault__factory_ac896df814cedccb228e757a44efc7a8a}
+
+
+Constructeur. 
+
+Constructeur de la classe \hyperlink{classFault__factory}{Fault\_\-factory}, qui instancie une faute et l'ajoute � la liste de faute
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em id\_\-fault}]: identificateur du type de faute \item[{\em id\_\-target}]: identificateur de la cible de la faute \end{DoxyParams}
+\hypertarget{classFault__factory_a58a48bac9b2395b916200542a3ca12f4}{
+\index{Fault\_\-factory@{Fault\_\-factory}!next\_\-fault@{next\_\-fault}}
+\index{next\_\-fault@{next\_\-fault}!Fault_factory@{Fault\_\-factory}}
+\subsubsection[{next\_\-fault}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Fault} $\ast$ Fault\_\-factory::next\_\-fault (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classFault__factory_a58a48bac9b2395b916200542a3ca12f4}
+
+
+return next fault 
+
+Methode qui retourne le premier element de la liste et le supprime
+
+\begin{DoxyReturn}{Renvoie}
+Fault$\ast$ faults si la liste des fautes n'est pas vide, sinon return NULL. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Fault\_\-factory.hh\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Fault\_\-factory.cpp\end{DoxyCompactItemize}

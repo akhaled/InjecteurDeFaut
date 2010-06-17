@@ -3,6 +3,13 @@
 #include <stdlib.h>
 using namespace std;
 
+/*!
+*  \brief Constructeur
+*
+*  Constructeur de la classe Source_creator
+*
+*  \param config_file_path : le chemin absolue du fichier de configuration 
+*/
 Source_creator::Source_creator(QString config_file_path){
 
    fichier.setFileName(config_file_path);
@@ -23,7 +30,13 @@ Source_creator::Source_creator(QString config_file_path){
    fichier.close();
 }
 
-//--------------------------------creer les fichiers C--------------------------------------------------
+/*!
+*  \brief creer les fichiers C
+*
+*  Creer les fichiers C du code injecteur de fautes et de l'observateur
+*
+*  \param fault_file_path : le chemin absolue du fichier faute
+*/
 void Source_creator::create_C_file(QString fault_file_path){
     config = fault_file_path;
    
@@ -68,8 +81,13 @@ void Source_creator::create_C_file(QString fault_file_path){
    fichier.close();
 }
 
-
-//------------------------------------------------generer code pok-----------------------------------------------------------------
+/*!
+*  \brief Generer code pok
+*
+*  Generer le code pok à partir du model AADL et des fichiers C de l'application
+*
+*  \return TRUE si la generation est terminée avec succés, sinon return FALSE
+*/
 bool  Source_creator::generate_pok_code(){
 
     //mise en place des variables d'environnement
@@ -104,7 +122,15 @@ bool  Source_creator::generate_pok_code(){
   }
 }
 
-//--------------------------------------recuperer le code entre str1 et str2-------------------------------------------------------
+/*!
+*  \brief recuperer le code 
+*
+*  Recuperer le code entre les tags
+*
+*  \param str1 : tag de début de code à récupérer 
+*  \param str2 : tag de fin de code à récupérer
+*  \return QString code  
+*/
 QString Source_creator::concatenate(QString str1, QString str2)  {
 
   QString s1 = str1;

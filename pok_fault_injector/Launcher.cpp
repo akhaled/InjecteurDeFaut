@@ -7,6 +7,17 @@
 #define RAM_FILE_NAME "qemu_ram"
 //#define QEMU_COMMAND "qemu -cdrom xubuntu-10.04-desktop-i386.iso"
 
+/*!
+*  \brief Constructeur
+*
+*  Constructeur de la classe Launcher
+*
+*  \param *Log : 
+*  \param &pok_ap_path: 
+*  \param loop_nb : 
+*  \param pok_appli_path :
+*  \param obs_loops_nb : 
+*/
 Launcher::Launcher(Log_creator* log, const QString& pok_ap_path,
                    int loop_nb): pok_appli_path(pok_ap_path),
                                  obs_loops_nb(loop_nb)
@@ -16,13 +27,21 @@ Launcher::Launcher(Log_creator* log, const QString& pok_ap_path,
   observer= new Observer();
 }
 
-
+/*!
+*  \brief Destructeur 
+*/
 Launcher::~Launcher()
 { 
   delete observer;
 }
 
-
+/*!
+*  \brief lancer QEMU
+*
+* Methode qui lance QEMU 
+*
+*  \return TRUE si QEMU est lancé, sinon retoune FALSE
+*/
 bool Launcher::run_qemu() {
   QString command(QEMU_COMMAND);
 
@@ -39,6 +58,9 @@ bool Launcher::run_qemu() {
   return qemu_process.startDetached(command);
 }
 
+/*!
+*  \brief arrêter QEMU
+*/
 void Launcher::exit_qemu() {
   observer->exit_qemu();
 }
@@ -49,6 +71,13 @@ QProcess::ProcessState Launcher::qemu_state() {
 }
 */
 
+/*!
+*  \brief commencer l'observation
+*
+* Methode qui lance QEMU et la phase d’observation 
+*
+*  \param *fault : la fault courrent
+*/
 void Launcher::start_observation(Fault* fault) {
 
   log_creator->set_fault(fault);

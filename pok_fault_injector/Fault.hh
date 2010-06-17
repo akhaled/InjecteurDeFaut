@@ -14,10 +14,10 @@ class Fault{
 	int *get_lengths();
 
 	private:
-	QString id_target;
-	QString id_fault;
-        QStringList obs_vars;
-	int lengths[];
+	QString id_target;//!<identificateur de la cible de la faute
+	QString id_fault;//!<identificateur du type de faute
+        QStringList obs_vars;//!<la liste des variables à récupérer dans la RAM de QEMU par la partie observation. Lors de son instanciation, elle ira chercher cette liste dans son fichier .fault
+	int lengths[];//!<un tableau d’entier contenant la taille des variables précédentes en nombre d’octet
 
 
 };

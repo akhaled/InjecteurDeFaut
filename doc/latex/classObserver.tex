@@ -1,0 +1,114 @@
+\hypertarget{classObserver}{
+\section{Référence de la classe Observer}
+\label{classObserver}\index{Observer@{Observer}}
+}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classObserver_a19c43f80a38a332a6f694783df3c9835}{Observer} ()
+\begin{DoxyCompactList}\small\item\em Constructeur. \item\end{DoxyCompactList}\item 
+\hypertarget{classObserver_a450645e61c136826f09940a1334c7f34}{
+\hyperlink{classObserver_a450645e61c136826f09940a1334c7f34}{$\sim$Observer} ()}
+\label{classObserver_a450645e61c136826f09940a1334c7f34}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \item\end{DoxyCompactList}\item 
+bool \hyperlink{classObserver_ad1d517ca2d4eaca45cc4c3826224bdf0}{connect\_\-to\_\-qemu} ()
+\begin{DoxyCompactList}\small\item\em connection à QEMU \item\end{DoxyCompactList}\item 
+void \hyperlink{classObserver_af087ba1fc5058af1085cc19dd592dae7}{disconnect\_\-from\_\-qemu} ()
+\begin{DoxyCompactList}\small\item\em disconnection à QEMU \item\end{DoxyCompactList}\item 
+void \hyperlink{classObserver_a2429a0ceee3eda2e1a51e8696b0063de}{ram\_\-to\_\-file} (const QString \&file\_\-path)
+\begin{DoxyCompactList}\small\item\em creer un fichier de ram \item\end{DoxyCompactList}\item 
+\hypertarget{classObserver_a94ce174d2c4992ed3145f37f45bf5799}{
+QByteArray $\ast$ {\bfseries get\_\-ram} ()}
+\label{classObserver_a94ce174d2c4992ed3145f37f45bf5799}
+
+\item 
+\hypertarget{classObserver_ad85dbdf75e3a014caa5b03c32b2f53ef}{
+const QString \& {\bfseries get\_\-socket\_\-path} ()}
+\label{classObserver_ad85dbdf75e3a014caa5b03c32b2f53ef}
+
+\item 
+void \hyperlink{classObserver_a7b1079c5a865ee2eb9f6e24a035be5c2}{exit\_\-qemu} ()
+\begin{DoxyCompactList}\small\item\em arrêter QEMU \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classObserver_a19c43f80a38a332a6f694783df3c9835}{
+\index{Observer@{Observer}!Observer@{Observer}}
+\index{Observer@{Observer}!Observer@{Observer}}
+\subsubsection[{Observer}]{\setlength{\rightskip}{0pt plus 5cm}Observer::Observer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classObserver_a19c43f80a38a332a6f694783df3c9835}
+
+
+Constructeur. 
+
+Constructeur de la classe \hyperlink{classObserver}{Observer} 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classObserver_ad1d517ca2d4eaca45cc4c3826224bdf0}{
+\index{Observer@{Observer}!connect\_\-to\_\-qemu@{connect\_\-to\_\-qemu}}
+\index{connect\_\-to\_\-qemu@{connect\_\-to\_\-qemu}!Observer@{Observer}}
+\subsubsection[{connect\_\-to\_\-qemu}]{\setlength{\rightskip}{0pt plus 5cm}bool Observer::connect\_\-to\_\-qemu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classObserver_ad1d517ca2d4eaca45cc4c3826224bdf0}
+
+
+connection à QEMU 
+
+Methode qui connecte à QEMU via le unix local socket
+
+\begin{DoxyReturn}{Renvoie}
+TRUE si QEMU est connecté, sinon retourne FALSE 
+\end{DoxyReturn}
+\hypertarget{classObserver_af087ba1fc5058af1085cc19dd592dae7}{
+\index{Observer@{Observer}!disconnect\_\-from\_\-qemu@{disconnect\_\-from\_\-qemu}}
+\index{disconnect\_\-from\_\-qemu@{disconnect\_\-from\_\-qemu}!Observer@{Observer}}
+\subsubsection[{disconnect\_\-from\_\-qemu}]{\setlength{\rightskip}{0pt plus 5cm}void Observer::disconnect\_\-from\_\-qemu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classObserver_af087ba1fc5058af1085cc19dd592dae7}
+
+
+disconnection à QEMU 
+
+Methode qui disconnecte à QEMU \hypertarget{classObserver_a7b1079c5a865ee2eb9f6e24a035be5c2}{
+\index{Observer@{Observer}!exit\_\-qemu@{exit\_\-qemu}}
+\index{exit\_\-qemu@{exit\_\-qemu}!Observer@{Observer}}
+\subsubsection[{exit\_\-qemu}]{\setlength{\rightskip}{0pt plus 5cm}void Observer::exit\_\-qemu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classObserver_a7b1079c5a865ee2eb9f6e24a035be5c2}
+
+
+arrêter QEMU 
+
+Methode qui termine la processus de QEMU \hypertarget{classObserver_a2429a0ceee3eda2e1a51e8696b0063de}{
+\index{Observer@{Observer}!ram\_\-to\_\-file@{ram\_\-to\_\-file}}
+\index{ram\_\-to\_\-file@{ram\_\-to\_\-file}!Observer@{Observer}}
+\subsubsection[{ram\_\-to\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void Observer::ram\_\-to\_\-file (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{ file\_\-path}
+\end{DoxyParamCaption}
+)}}
+\label{classObserver_a2429a0ceee3eda2e1a51e8696b0063de}
+
+
+creer un fichier de ram 
+
+Methode qui copier les ram dans un fichier 
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Observer.hh\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Observer.cpp\end{DoxyCompactItemize}

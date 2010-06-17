@@ -1,0 +1,91 @@
+\hypertarget{classLauncher}{
+\section{Référence de la classe Launcher}
+\label{classLauncher}\index{Launcher@{Launcher}}
+}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLauncher_ae4326673c70640ebc88ea697f624d567}{Launcher} (\hyperlink{classLog__creator}{Log\_\-creator} $\ast$log, const QString \&pok\_\-app\_\-path, int loop\_\-nb=1)
+\begin{DoxyCompactList}\small\item\em Constructeur. \item\end{DoxyCompactList}\item 
+\hypertarget{classLauncher_a7fb35def86a53bb0dce1267fe2adf019}{
+\hyperlink{classLauncher_a7fb35def86a53bb0dce1267fe2adf019}{$\sim$Launcher} ()}
+\label{classLauncher_a7fb35def86a53bb0dce1267fe2adf019}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \item\end{DoxyCompactList}\item 
+bool \hyperlink{classLauncher_aa32824612c6a58b3e38235f759b8c9ea}{run\_\-qemu} ()
+\begin{DoxyCompactList}\small\item\em lancer QEMU \item\end{DoxyCompactList}\item 
+\hypertarget{classLauncher_aef18c1ef86b51595e9b71dbc45fd796e}{
+void \hyperlink{classLauncher_aef18c1ef86b51595e9b71dbc45fd796e}{exit\_\-qemu} ()}
+\label{classLauncher_aef18c1ef86b51595e9b71dbc45fd796e}
+
+\begin{DoxyCompactList}\small\item\em arrêter QEMU \item\end{DoxyCompactList}\item 
+void \hyperlink{classLauncher_a0d057d62987a21971eaa9e49856e2327}{start\_\-observation} (\hyperlink{classFault}{Fault} $\ast$fault)
+\begin{DoxyCompactList}\small\item\em commencer l'observation \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classLauncher_ae4326673c70640ebc88ea697f624d567}{
+\index{Launcher@{Launcher}!Launcher@{Launcher}}
+\index{Launcher@{Launcher}!Launcher@{Launcher}}
+\subsubsection[{Launcher}]{\setlength{\rightskip}{0pt plus 5cm}Launcher::Launcher (
+\begin{DoxyParamCaption}
+\item[{{\bf Log\_\-creator} $\ast$}]{ log, }
+\item[{const QString \&}]{ pok\_\-ap\_\-path, }
+\item[{int}]{ loop\_\-nb = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}
+\label{classLauncher_ae4326673c70640ebc88ea697f624d567}
+
+
+Constructeur. 
+
+Constructeur de la classe \hyperlink{classLauncher}{Launcher}
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em $\ast$Log}]: \item[{\em \&pok\_\-ap\_\-path,:}]\item[{\em loop\_\-nb}]: \item[{\em pok\_\-appli\_\-path}]: \item[{\em obs\_\-loops\_\-nb}]: \end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classLauncher_aa32824612c6a58b3e38235f759b8c9ea}{
+\index{Launcher@{Launcher}!run\_\-qemu@{run\_\-qemu}}
+\index{run\_\-qemu@{run\_\-qemu}!Launcher@{Launcher}}
+\subsubsection[{run\_\-qemu}]{\setlength{\rightskip}{0pt plus 5cm}bool Launcher::run\_\-qemu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classLauncher_aa32824612c6a58b3e38235f759b8c9ea}
+
+
+lancer QEMU 
+
+Methode qui lance QEMU
+
+\begin{DoxyReturn}{Renvoie}
+TRUE si QEMU est lancé, sinon retoune FALSE 
+\end{DoxyReturn}
+\hypertarget{classLauncher_a0d057d62987a21971eaa9e49856e2327}{
+\index{Launcher@{Launcher}!start\_\-observation@{start\_\-observation}}
+\index{start\_\-observation@{start\_\-observation}!Launcher@{Launcher}}
+\subsubsection[{start\_\-observation}]{\setlength{\rightskip}{0pt plus 5cm}void Launcher::start\_\-observation (
+\begin{DoxyParamCaption}
+\item[{{\bf Fault} $\ast$}]{ fault}
+\end{DoxyParamCaption}
+)}}
+\label{classLauncher_a0d057d62987a21971eaa9e49856e2327}
+
+
+commencer l'observation 
+
+Methode qui lance QEMU et la phase d’observation
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em $\ast$fault}]: la fault courrent \end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Launcher.hh\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Launcher.cpp\end{DoxyCompactItemize}

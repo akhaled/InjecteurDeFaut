@@ -1,0 +1,103 @@
+\hypertarget{classSource__creator}{
+\section{Référence de la classe Source\_\-creator}
+\label{classSource__creator}\index{Source\_\-creator@{Source\_\-creator}}
+}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSource__creator_a4daffe7e8125a0fc1a1887d2943d7931}{Source\_\-creator} (QString config\_\-file\_\-path)
+\begin{DoxyCompactList}\small\item\em Constructeur. \item\end{DoxyCompactList}\item 
+void \hyperlink{classSource__creator_ae5958a1e34ac288588ab353fa462349d}{create\_\-C\_\-file} (QString fault\_\-file\_\-path)
+\begin{DoxyCompactList}\small\item\em creer les fichiers C \item\end{DoxyCompactList}\item 
+bool \hyperlink{classSource__creator_a4f9996f453ffc97272b736e8e7f7a3c3}{generate\_\-pok\_\-code} ()
+\begin{DoxyCompactList}\small\item\em Generer code pok. \item\end{DoxyCompactList}\item 
+QString \hyperlink{classSource__creator_af4c03606f98794df555918f3a9fc0183}{concatenate} (QString str1, QString str2)
+\begin{DoxyCompactList}\small\item\em recuperer le code \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classSource__creator_a4daffe7e8125a0fc1a1887d2943d7931}{
+\index{Source\_\-creator@{Source\_\-creator}!Source\_\-creator@{Source\_\-creator}}
+\index{Source\_\-creator@{Source\_\-creator}!Source_creator@{Source\_\-creator}}
+\subsubsection[{Source\_\-creator}]{\setlength{\rightskip}{0pt plus 5cm}Source\_\-creator::Source\_\-creator (
+\begin{DoxyParamCaption}
+\item[{QString}]{ config\_\-file\_\-path}
+\end{DoxyParamCaption}
+)}}
+\label{classSource__creator_a4daffe7e8125a0fc1a1887d2943d7931}
+
+
+Constructeur. 
+
+Constructeur de la classe \hyperlink{classSource__creator}{Source\_\-creator}
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em config\_\-file\_\-path}]: le chemin absolue du fichier de configuration \end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classSource__creator_af4c03606f98794df555918f3a9fc0183}{
+\index{Source\_\-creator@{Source\_\-creator}!concatenate@{concatenate}}
+\index{concatenate@{concatenate}!Source_creator@{Source\_\-creator}}
+\subsubsection[{concatenate}]{\setlength{\rightskip}{0pt plus 5cm}QString Source\_\-creator::concatenate (
+\begin{DoxyParamCaption}
+\item[{QString}]{ str1, }
+\item[{QString}]{ str2}
+\end{DoxyParamCaption}
+)}}
+\label{classSource__creator_af4c03606f98794df555918f3a9fc0183}
+
+
+recuperer le code 
+
+Recuperer le code entre les tags
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em str1}]: tag de début de code à récupérer \item[{\em str2}]: tag de fin de code à récupérer \end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+QString code 
+\end{DoxyReturn}
+\hypertarget{classSource__creator_ae5958a1e34ac288588ab353fa462349d}{
+\index{Source\_\-creator@{Source\_\-creator}!create\_\-C\_\-file@{create\_\-C\_\-file}}
+\index{create\_\-C\_\-file@{create\_\-C\_\-file}!Source_creator@{Source\_\-creator}}
+\subsubsection[{create\_\-C\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void Source\_\-creator::create\_\-C\_\-file (
+\begin{DoxyParamCaption}
+\item[{QString}]{ fault\_\-file\_\-path}
+\end{DoxyParamCaption}
+)}}
+\label{classSource__creator_ae5958a1e34ac288588ab353fa462349d}
+
+
+creer les fichiers C 
+
+Creer les fichiers C du code injecteur de fautes et de l'observateur
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em fault\_\-file\_\-path}]: le chemin absolue du fichier faute \end{DoxyParams}
+\hypertarget{classSource__creator_a4f9996f453ffc97272b736e8e7f7a3c3}{
+\index{Source\_\-creator@{Source\_\-creator}!generate\_\-pok\_\-code@{generate\_\-pok\_\-code}}
+\index{generate\_\-pok\_\-code@{generate\_\-pok\_\-code}!Source_creator@{Source\_\-creator}}
+\subsubsection[{generate\_\-pok\_\-code}]{\setlength{\rightskip}{0pt plus 5cm}bool Source\_\-creator::generate\_\-pok\_\-code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classSource__creator_a4f9996f453ffc97272b736e8e7f7a3c3}
+
+
+Generer code pok. 
+
+Generer le code pok à partir du model AADL et des fichiers C de l'application
+
+\begin{DoxyReturn}{Renvoie}
+TRUE si la generation est terminée avec succés, sinon return FALSE 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Source\_\-creator.hh\item 
+/home/sunjing/IF/InjecteurDeFaut/pok\_\-fault\_\-injector/Source\_\-creator.cpp\end{DoxyCompactItemize}

@@ -8,9 +8,9 @@
 class Observer {
 
 private:
-  QString socket_path;
-  QLocalSocket* qemu_socket;  
-  QLocalServer qemu_server;
+  QString socket_path;//!<le chemin de la socket Unix utilisée pour communiquer avec QEMU
+  QLocalSocket* qemu_socket;//!<socket Unix pour la communication avec QEMU
+  QLocalServer qemu_server;//!<serveur auquel se connecte QEMU
   
 public:
   Observer();

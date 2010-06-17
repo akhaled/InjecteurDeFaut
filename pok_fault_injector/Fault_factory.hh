@@ -13,7 +13,7 @@ class Fault_factory{
 	Fault* next_fault();
 
 	private:
-	QList<Fault *>  faults;
+	QList<Fault *>  faults;//!la liste des fautes à injecter
 };
 
 #endif
