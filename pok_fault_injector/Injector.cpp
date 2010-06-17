@@ -1,10 +1,10 @@
 #include <iostream>
 #include <stdlib.h>
 #include "Injector.hh"
-#include<QTextStream>
-#include<QByteArray>
-#include<QStringList>
-#include<QProcess>
+#include <QTextStream>
+#include <QByteArray>
+#include <QStringList>
+#include <QProcess>
 
 using namespace std;
 
