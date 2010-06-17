@@ -7,8 +7,7 @@ Fault_factory::Fault_factory(){
 //**************************instancie une faute et l'ajoute à la liste de faute*****************************
 void Fault_factory::add_fault(QString id_fault, QString id_target){
 
-    fault = new Fault(id_fault, id_target);
-    faults.append(fault);
+  faults.append(new Fault(id_fault, id_target));
 
 }
 

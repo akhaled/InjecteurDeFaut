@@ -14,8 +14,8 @@ Log_creator::Log_creator(const QString& path_to_journal) {
   log_file.open(QIODevice::WriteOnly | QIODevice::Text);
   log_file.close();
 
-
   tag = TAG;
+  fault = NULL;
 }
 
 Log_creator::~Log_creator() {
@@ -115,6 +115,10 @@ void Log_creator::write_message(const QString& message) {
 }
 
 void Log_creator::set_fault(Fault* f) {
-  delete fault;
+  // If f is the first fault of the campaign, current_fault == NULL
+  if(fault != NULL)
+    {
+      delete fault;
+    }
   fault = f;
 }
