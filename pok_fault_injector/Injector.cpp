@@ -150,16 +150,18 @@ bool Injector::fault_file_is_valid(QString id_fault, QString id_target){
 //injection de la faute et genration du code POK==========================================================================
 Fault* Injector::inject(){
 
-    msg = "***************generation des fichiers C**********************************";
-    cout << msg.toStdString()<< endl;
-
-    error_handler->write_message(msg);
     
     current_fault = factory->next_fault();
     
     if(current_fault == NULL){
         return NULL;
     }
+
+
+    msg = "***************generation des fichiers C**********************************";
+    cout << msg.toStdString()<< endl;
+
+    error_handler->write_message(msg);
     
     QString fault_file_name = current_fault->get_id_fault() + "-" + current_fault->get_id_target() + ".fault";
     source->create_C_file(fault_file_name);

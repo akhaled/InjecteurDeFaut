@@ -1,14 +1,16 @@
 #include <iostream>
 #include <cmath>
 #include <QTextStream>
-
+#include <QDir>
 
 #include "Log_creator.hh"
 
 #define TAG "begin"
 
 Log_creator::Log_creator(const QString& path_to_journal) {
-  log_file.setFileName(path_to_journal);
+
+  std::cout << (QDir::currentPath() + "/" + path_to_journal).toStdString() << std::endl;
+  log_file.setFileName(QDir::currentPath() + "/" + path_to_journal);
 
   // Erase the file
   log_file.open(QIODevice::WriteOnly | QIODevice::Text);
@@ -35,6 +37,10 @@ bool Log_creator::parse_ram(const QString& file_path){
       write_error("Can't open RAM file");
       return false;
     }
+  else
+    {
+      write_message("RAM file opened");
+    }
 
   // Get the ram
   ram = ram_file.readAll();
@@ -45,7 +51,12 @@ bool Log_creator::parse_ram(const QString& file_path){
   // If we didn't find it
   if(index_in_file == -1)
     {
+      write_error("Can't find"  + tag + "in ram");
       return false;
+    }
+  else
+    {
+      write_message(tag + "found");
     }
 
   // Set the index just after the tag
@@ -106,6 +117,8 @@ void Log_creator::write_error(const QString& error_message){
 void Log_creator::write_message(const QString& message) {
   log_file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append);
   QTextStream out(&log_file);
+
+  std::cout << message.toStdString() << std::endl;
 
   out << message << "\n";
 
