@@ -16,8 +16,8 @@ Injector::Injector(Log_creator *Log, const QString & config_file, const QString 
     error_handler = Log;
     initialize_environment(config_file, file_entry);
     initialize_fault_list(file_entry);   
-    injector_code_path_file_name = pok_appli_path + "/hello1.c";
-    observer_code_path_file_name = pok_appli_path + "/hello2.c";
+    injector_code_path_file_name = pok_appli_path + "/send.c";
+    observer_code_path_file_name = pok_appli_path + "/receive.c";
 
 }
 
@@ -27,9 +27,6 @@ QString Injector::get_pok_appli_path(){
 
 //preparation de l'environnement====================================================================================
 void Injector::initialize_environment(const QString & config_file, const QString & file_entry){
-
-    msg = QString("************Preparation de l'environement********************");
-    cout << msg.toStdString()<< endl;
 
     error_handler->write_message(msg);
 
@@ -55,13 +52,10 @@ void Injector::initialize_environment(const QString & config_file, const QString
 
     	if(valid){
           msg =  "fichier config OK";
-          cout << msg.toStdString()<< endl;
           error_handler->write_message(msg);
     	}
     	else{
           msg = "ERREUR: repertoires manquants";
-          cout << "\033[31m" << msg.toStdString()<< endl;
-          cout << "\033[30m" << endl;
           error_handler->write_error(msg);
           exit(0);
     	}
@@ -69,8 +63,6 @@ void Injector::initialize_environment(const QString & config_file, const QString
     }
     else{
       msg = "ERREUR: impossible de trouver " + config_file;
-      cout << "\033[31m" << msg.toStdString()<< endl;
-      cout << "\033[30m" << endl;
       error_handler->write_error(msg);
       exit(0);
     }
@@ -85,13 +77,10 @@ void Injector::initialize_environment(const QString & config_file, const QString
 
 
       msg = "fichier d'entre OK";
-      cout << msg.toStdString()<< endl;
       error_handler->write_message(msg);
     }
     else{
       msg = "ERREUR: impossible de trouver " + file_entry;
-      cout << "\033[31m" << msg.toStdString()<< endl;
-      cout << "\033[30m" << endl;
       error_handler->write_error(msg);
       exit(0);
     }
@@ -101,7 +90,6 @@ void Injector::initialize_environment(const QString & config_file, const QString
 void Injector::initialize_fault_list(const QString & file_entry){
 
     msg = "***************Initialisation liste de fautes**********************************";
-    cout << msg.toStdString()<< endl;
 
     error_handler->write_message(msg);
 
@@ -121,14 +109,11 @@ void Injector::initialize_fault_list(const QString & file_entry){
 
           factory->add_fault(list.at(0), list.at(1));
           msg = "Ajout de " + list.at(0) + "-" + list.at(1) + " a la liste de fautes";
-          cout << msg.toStdString()<< endl;
           
           error_handler->write_message(msg);
         }
         else{
           msg = "ERREUR: impossible de trouver " + list.at(0) + "-" + list.at(1) + ".fault";
-          cout << "\033[31m" << msg.toStdString()<< endl;
-          cout << "\033[30m" << endl;
           error_handler->write_error(msg);
         }
 
@@ -159,7 +144,6 @@ Fault* Injector::inject(){
 
 
     msg = "***************generation des fichiers C**********************************";
-    cout << msg.toStdString()<< endl;
 
     error_handler->write_message(msg);
     
@@ -176,33 +160,26 @@ Fault* Injector::inject(){
 
     if(valid){
     	msg = "fichiers.C OK";
-        cout << msg.toStdString()<< endl;
         error_handler->write_message(msg);
     }
     else{
       msg = "ERREUR fichier.C manquants";
-      cout << "\033[31m" << msg.toStdString()<< endl;
-      cout << "\033[30m" << endl;
       error_handler->write_error(msg);
       exit(0);
     }
     
     //generation code POK
     msg = "***************generation code POK**********************************";
-    cout << msg.toStdString()<< endl;
 
     error_handler->write_message(msg);
 
     valid = source->generate_pok_code();
     if(valid){
         msg = "generation code POK OK";
-        cout << msg.toStdString()<< endl;
         error_handler->write_message(msg);
     }
     else{
       msg = "ERREUR generation code POK";
-      cout << "\033[31m" << msg.toStdString()<< endl;
-      cout << "\033[30m" << endl;
       error_handler->write_error(msg);
     }
 

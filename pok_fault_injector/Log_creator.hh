@@ -10,7 +10,8 @@ class Log_creator
 {
 private:
   Fault* fault;
-  QByteArray tag;
+  QByteArray begin_tag;
+  QByteArray end_tag;
   QFile log_file;
   QList<qint64> values;
   
