@@ -1,0 +1,2 @@
+export POK_PATH=~/Documents/pok-20100317/
+export PATH=~/Documents/ocarina-2.0w-suite-x86-linux-20100610/bin:$PATH

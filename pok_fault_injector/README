@@ -1,0 +1,46 @@
+========================
+===== Installation =====
+========================
+
+== Dépendences ==
+Tous les programmes nécessaires à la compilation de POK doivent être installés
+(Ocarina, gcc, etc...).
+Les librairies Qt doivent également être présentes.
+
+== config.txt ==
+Mettre à jour le fichier config.txt qui contient:
+le chemin vers le dossier contenant les sources de POK
+le chemin vers le dossier contenant les binaires d'ocarina
+le chemin vers le dossier qui contiendra les codes c des programmes POK
+
+Exemple de contenu du fichier config.txt:
+/home/pok-31343543
+/home/ocarina-2.0w-x86/bin
+/home/pok-31343543/examples/test_fault
+
+
+== POK Makefile ==
+Il est nécessaire de modifier le fichier Path/to/POK/misc/mk/grub-floppy.mk
+pour permettre la communication avec QEMU.
+
+
+Dans ce fichier remplacer (ligne 167):
+
+$(QEMU) $(CONFIG_QEMU) $(QEMU_MISC) $(NETWORK_ARGS) -pidfile qemu.pid -hda fat:. -boot a $(QEMU_ENDCOMMAND) &
+
+par:
+
+$(QEMU) $(CONFIG_QEMU) $(QEMU_MISC) -monitor unix:/tmp/socket $(NETWORK_ARGS) -pidfile qemu.pid -hda fat:. -boot a $(QEMU_ENDCOMMAND) &
+
+
+
+=====================
+===== Lancement =====
+=====================
+
+Pour lancer l'application taper en ligne de commande:
+test_pok fichier
+
+avec fichier: chemin vers un fichier contenant un couple id_faute, id_cible par
+ligne, ces deux identifiants étant séparés par une virgule.
+

@@ -1,0 +1,9 @@
+************Preparation de l'environement********************
+fichier config OK
+fichier d'entre OK
+***************Initialisation liste de fautes**********************************
+Ajout de Hors_limite-blackboard a la liste de fautes
+***************generation des fichiers C**********************************
+fichiers.C OK
+***************generation code POK**********************************
+generation code POK OK
