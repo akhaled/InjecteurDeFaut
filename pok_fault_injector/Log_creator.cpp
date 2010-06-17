@@ -3,7 +3,7 @@
 #include <QTextStream>
 
 
-#include "log_creator.hh"
+#include "Log_creator.hh"
 
 #define TAG "begin"
 

@@ -29,7 +29,7 @@ void Injector::initialize_environment(const QString & config_file, const QString
 
     msg = QString("************Preparation de l'environement********************");
     cout << msg.toStdString()<< endl;
-    error_handler->write(msg);
+    error_handler->write_message(msg);
 
     fichier_config.setFileName(config_file);
     fichier_entre.setFileName(file_entry);
@@ -48,29 +48,29 @@ void Injector::initialize_environment(const QString & config_file, const QString
         	dir = QDir(line);
         	valid = dir.exists();
         	pok_appli_path = line;
-                line= in.readLine();	
+                line= in.readLine();
     	}
-	
+
     	if(valid){
         	msg =  "fichier config OK";
 		cout << msg.toStdString()<< endl;
-        	error_handler->write(msg);		
+        	error_handler->write_message(msg);
     	}
     	else{
-		msg = "ERREUR: repertoires manquants";
-		cout << "\033[31m" << msg.toStdString()<< endl;
-		cout << "\033[30m" << endl;
-        	error_handler->write_error(msg);
-        	exit(0);
+          msg = "ERREUR: repertoires manquants";
+          cout << "\033[31m" << msg.toStdString()<< endl;
+          cout << "\033[30m" << endl;
+          error_handler->write_error(msg);
+          exit(0);
     	}
-	fichier_config.close();
+        fichier_config.close();
     }
     else{
-       	msg = "ERREUR: impossible de trouver " + config_file;
-	cout << "\033[31m" << msg.toStdString()<< endl;
-	cout << "\033[30m" << endl;
-        error_handler->write_error(msg);
-        exit(0);
+      msg = "ERREUR: impossible de trouver " + config_file;
+      cout << "\033[31m" << msg.toStdString()<< endl;
+      cout << "\033[30m" << endl;
+      error_handler->write_error(msg);
+      exit(0);
     }
 
     //verifie que le fichier donne en entrée existe
@@ -82,16 +82,16 @@ void Injector::initialize_environment(const QString & config_file, const QString
 	*/
 
 
-        msg = "fichier d'entre OK";
-	cout << msg.toStdString()<< endl;
-        error_handler->write(msg);
+      msg = "fichier d'entre OK";
+      cout << msg.toStdString()<< endl;
+      error_handler->write_message(msg);
     }
     else{
-        msg = "ERREUR: impossible de trouver " + file_entry;
-	cout << "\033[31m" << msg.toStdString()<< endl;
-	cout << "\033[30m" << endl;
-        error_handler->write_error(msg);
-        exit(0);
+      msg = "ERREUR: impossible de trouver " + file_entry;
+      cout << "\033[31m" << msg.toStdString()<< endl;
+      cout << "\033[30m" << endl;
+      error_handler->write_error(msg);
+      exit(0);
     }
 }
 
@@ -100,7 +100,7 @@ void Injector::initialize_fault_list(const QString & file_entry){
 
     msg = "***************Initialisation liste de fautes**********************************";
     cout << msg.toStdString()<< endl;
-    error_handler->write(msg);
+    error_handler->write_message(msg);
 
     QFile entry_file(file_entry);
     entry_file.open(QIODevice::ReadOnly);
@@ -119,13 +119,13 @@ void Injector::initialize_fault_list(const QString & file_entry){
             factory->add_fault(list.at(0), list.at(1));
             msg = "Ajout de " + list.at(0) + "-" + list.at(1) + " a la liste de fautes";
 	    cout << msg.toStdString()<< endl;
-            error_handler->write(msg);
+            error_handler->write_message(msg);
         }
         else{
-            msg = "ERREUR: impossible de trouver " + list.at(0) + "-" + list.at(1) + ".fault";
-	    cout << "\033[31m" << msg.toStdString()<< endl;
-            cout << "\033[30m" << endl;
-            error_handler->write_error(msg);
+          msg = "ERREUR: impossible de trouver " + list.at(0) + "-" + list.at(1) + ".fault";
+          cout << "\033[31m" << msg.toStdString()<< endl;
+          cout << "\033[30m" << endl;
+          error_handler->write_error(msg);
         }
 
         line = in.readLine();
@@ -148,7 +148,7 @@ Fault* Injector::inject(){
 
     msg = "***************generation des fichiers C**********************************";
     cout << msg.toStdString()<< endl;
-    error_handler->write(msg);
+    error_handler->write_message(msg);
     
     current_fault = factory->next_fault();
     
@@ -170,32 +170,32 @@ Fault* Injector::inject(){
     if(valid){
     	msg = "fichiers.C OK";
         cout << msg.toStdString()<< endl;
-        error_handler->write(msg);
+        error_handler->write_message(msg);
     }
     else{
-        msg = "ERREUR fichier.C manquants";
-	cout << "\033[31m" << msg.toStdString()<< endl;
-	cout << "\033[30m" << endl;
-        error_handler->write_error(msg);
-        exit(0);
+      msg = "ERREUR fichier.C manquants";
+      cout << "\033[31m" << msg.toStdString()<< endl;
+      cout << "\033[30m" << endl;
+      error_handler->write_error(msg);
+      exit(0);
     }
     
     //generation code POK
     msg = "***************generation code POK**********************************";
     cout << msg.toStdString()<< endl;
-    error_handler->write(msg);
+    error_handler->write_message(msg);
 
     valid = source->generate_pok_code();
     if(valid){
         msg = "generation code POK OK";
         cout << msg.toStdString()<< endl;
-        error_handler->write(msg);
+        error_handler->write_message(msg);
     }
     else{
-        msg = "ERREUR generation code POK";
-	cout << "\033[31m" << msg.toStdString()<< endl;
-	cout << "\033[30m" << endl;
-        error_handler->write_error(msg);
+      msg = "ERREUR generation code POK";
+      cout << "\033[31m" << msg.toStdString()<< endl;
+      cout << "\033[30m" << endl;
+      error_handler->write_error(msg);
     }
 
     return current_fault;
@@ -208,19 +208,4 @@ Injector::~Injector(){
     delete source;
     delete current_fault;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

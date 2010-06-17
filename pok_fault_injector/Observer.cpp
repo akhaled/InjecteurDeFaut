@@ -4,7 +4,7 @@
 #include <QString>
 #include <QChar>
 #include "unistd.h"
-#include "observer.hh"
+#include "Observer.hh"
 
 #define SOCKET_PATH "/tmp/socket"
 #define QEMU_FIRST_STRING_LENGTH 63
