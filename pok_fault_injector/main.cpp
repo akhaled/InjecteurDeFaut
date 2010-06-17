@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Injector.hh"
 #include "Log_creator.hh"
-#include "Launcher.hh"
+//#include "Launcher.hh"
 #include "Fault.hh"
 
 #define CONFIG_FILE "config_file.txt"
@@ -22,15 +22,15 @@ int main(int argc, char *argv[])
 
   Log_creator log(Journal);
   Injector injector(&log, config_file, file_entry);
-  Launcher launcher(&log, injector.get_pok_appli_path());
+  //Launcher launcher(&log, injector.get_pok_appli_path());
 
   Fault* current_fault = injector.inject();
 
-  while(current_fault != NULL)
+  /*while(current_fault != NULL)
     {
       launcher.start_observation(current_fault);
       current_fault = injector.inject();
-    }
+    }*/
 
   return 0;
 }

@@ -73,8 +73,6 @@ void Source_creator::create_C_file(QString fault_file_path){
 bool  Source_creator::generate_pok_code(){
 
     //mise en place des variables d'environnement
-    QString msg = "***********mise en place des variables d'environnement********";
-    cout << msg.toStdString()<< endl;
 
     QString env1 = "export POK_PATH=" + pok_path;
     QString env2 = "export PATH=" + ocarina_path + ":$PATH";
@@ -98,7 +96,6 @@ bool  Source_creator::generate_pok_code(){
     }
     else{
         chemin.append("/generated-code");
-        //cout<< chemin.toStdString()<<endl;
         QDir dir_gen(chemin);
     if(!dir_gen.exists()){
           return false;
