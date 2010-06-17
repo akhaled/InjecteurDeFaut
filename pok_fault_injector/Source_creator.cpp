@@ -15,11 +15,11 @@ Source_creator::Source_creator(QString config_file_path){
     }
    QTextStream in(&fichier);
 
-   pok_path = in.readLine(); 
+   pok_path = in.readLine();
    ocarina_path = in.readLine();
    pok_appli_path = in.readLine();
-   injector_code_path_file_name = "/cal/nfs3/mspcasi/ngougo/Documents/pok-20100317/examples/test_fautes/hello1.c";
-   observer_code_path_file_name = "/cal/nfs3/mspcasi/ngougo/Documents/pok-20100317/examples/test_fautes/hello2.c";
+   injector_code_path_file_name = pok_appli_path + "/hello1.c";
+   observer_code_path_file_name = pok_appli_path + "/hello2.c";
    fichier.close();
 }
 
@@ -98,37 +98,37 @@ bool  Source_creator::generate_pok_code(){
     }
     else{
         chemin.append("/generated-code");
-        //cout<< chemin.toStdString()<<endl; 
+        //cout<< chemin.toStdString()<<endl;
         QDir dir_gen(chemin);
     if(!dir_gen.exists()){
           return false;
     }
     return true;
-  } 
+  }
 }
 
 //--------------------------------------recuperer le code entre str1 et str2-------------------------------------------------------
 QString Source_creator::concatenate(QString str1, QString str2)  {
-    
+
   QString s1 = str1;
   QString s2 = str2;
   destination.setDevice(&fichier);
   code = "";
-  message= "";  
-        
-while ((QString::compare(message, s1, Qt::CaseInsensitive))!=0){   
-          message = destination.readLine();              
-         }
+  message= "";
+
+  while ((QString::compare(message, s1, Qt::CaseInsensitive))!=0){
+    message = destination.readLine();
+  }
 
   
-while (true){
-         message = destination.readLine();
-         if ((QString::compare(message, s2, Qt::CaseInsensitive))!=0){
-         code.append(message);
-         code.append("\n");
-         }
-         else break;
-   }   
-        code.append("\0");
- return code;
+  while (true){
+    message = destination.readLine();
+    if ((QString::compare(message, s2, Qt::CaseInsensitive))!=0){
+      code.append(message);
+      code.append("\n");
+    }
+    else break;
   }
+  code.append("\0");
+  return code;
+}
