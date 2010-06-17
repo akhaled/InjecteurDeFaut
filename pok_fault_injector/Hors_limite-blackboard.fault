@@ -2,45 +2,28 @@
 /pok
 /pok
 #DEBUT INJECTER# 
+#include <types.h>
 #include <libc/stdio.h>
 
-void user_hello_part1 ()
+uint8_t toto = 0;
+
+void user_send (uint8_t* t)
 {
-   printf( "[PART1] Hello World\n");
+   *t = toto; 
+   printf ("J'envoie la valeur %d\n", toto);
+   toto++;
 }
 #FIN INJECTER# 
 /pok
 /pok
 #DEBUT OBSERVER#
+#include <types.h>
 #include <libc/stdio.h>
-#include <libc/stdlib.h>
 
-void user_hello_part2 ()
+char tab[23] = "tagbeginvar1var2tagend";
+
+void user_receive (uint8_t t)
 {
-   int a;
-   int b = 10;
-   int c;
-   uint8_t* alloc1;
-   uint8_t* alloc2;
-
-   for (c = 0 ; c < 65000 ; c++)
-   {
-      a = 0 + 1 * b;
-      b = b + 1;
-
-      b = b - 2;
-      b = b + 1;
-      a++;
-   }
-
-   alloc1 = malloc (1000);
-   alloc2 = calloc (1000, 1);
-   printf("[PART2] First memory allocation, adress=0x%x\n", alloc1);
-   printf("[PART2] Second memory allocation, adress=0x%x\n", alloc2);
-   printf("[PART2] Hello World\n");
-   free (alloc1);
-   printf("[PART2] Deallocate first memory allocation\n");
-   free (alloc2);
-   printf("[PART2] Deallocate second memory allocation\n");
+   printf ("Je recois la valeur %d\n", t);
 }
 #FIN OBSERVER#

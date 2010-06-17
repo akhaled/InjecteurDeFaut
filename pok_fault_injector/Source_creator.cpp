@@ -25,8 +25,8 @@ Source_creator::Source_creator(QString config_file_path){
    pok_path = in.readLine();
    ocarina_path = in.readLine();
    pok_appli_path = in.readLine();
-   injector_code_path_file_name = pok_appli_path + "/hello1.c";
-   observer_code_path_file_name = pok_appli_path + "/hello2.c";
+   injector_code_path_file_name = pok_appli_path + "/send.c";
+   observer_code_path_file_name = pok_appli_path + "/receive.c";
    fichier.close();
 }
 

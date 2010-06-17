@@ -9,11 +9,13 @@
 class Log_creator
 {
 private:
+
   Fault* fault;//!<la faute courante injectée
-  QByteArray tag;//!< le tag qui apparaitra dans la RAM de POK avant les paramètres à récupérer
+  QByteArray begin_tag;
+  QByteArray end_tag;
   QFile log_file;//!<le fichier qui contiendra le rapport
   QList<qint64> values;//!<un tableau de qint64 (entiers de 64 bits), qui contiendrai les valeurs des paramètres à observer
-  
+ 
 
 public:
   Log_creator(const QString& path_to_journal);
