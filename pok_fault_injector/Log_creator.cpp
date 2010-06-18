@@ -52,6 +52,8 @@ bool Log_creator::parse_ram(const QString& file_path){
   QList<QByteArray> values; 
   QString num;
 
+  usleep(2000000);
+
   while(!ram_file.open(QIODevice::ReadOnly | QIODevice::Text) && time < 10)
     {
       usleep(1000000);
@@ -71,8 +73,12 @@ bool Log_creator::parse_ram(const QString& file_path){
   // Get the ram
   ram = ram_file.readAll();
 
-  write_message("**** SIZE:");
+  write_message("**** SIZE of RAM:");
   write_message(num.setNum(ram.length()));
+
+
+  write_message("**** SIZE of RAM FILE:");
+  write_message(num.setNum(ram_file.atEnd()));
 
   // Search the tag
   begin_tag_index = ram.indexOf(begin_tag);
