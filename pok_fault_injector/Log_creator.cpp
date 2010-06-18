@@ -99,17 +99,17 @@ bool Log_creator::parse_ram(const QString& file_path){
   
   vars = ram.mid(begin_tag_index + begin_tag.length(), end_tag_index - begin_tag_index - begin_tag.length());
 
-  /*
+  
   values = vars.split(SEPARATOR);
   write_message("**** VALUES ****");
   for(int i = 0; i < values.length(); i++)
     { 
       write_message(QString(values.at(i)));
     }
-  */
 
-  write_message("**** VALUES ****");
-  write_message(QString(vars));
+
+  //write_message("**** VALUES ****");
+  //write_message(QString(vars));
   
   return true;
 }
