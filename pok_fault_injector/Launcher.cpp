@@ -13,14 +13,11 @@
 *  Constructeur de la classe Launcher
 *
 *  \param *Log : 
-*  \param &pok_ap_path: 
 *  \param loop_nb : 
 *  \param pok_appli_path :
 *  \param obs_loops_nb : 
 */
-Launcher::Launcher(Log_creator* log, const QString& pok_ap_path,
-                   int loop_nb): pok_appli_path(pok_ap_path),
-                                 obs_loops_nb(loop_nb)
+Launcher::Launcher(Log_creator* log, int loop_nb): obs_loops_nb(loop_nb)
 {
   log_creator = log;
   // Create the observer
@@ -42,7 +39,7 @@ Launcher::~Launcher()
 *
 *  \return TRUE si QEMU est lancé, sinon retoune FALSE
 */
-bool Launcher::run_qemu() {
+bool Launcher::run_qemu(const QString& pok_appli_path) {
   QString command(QEMU_COMMAND);
 
   //Go in the pok appli path to launch the command
@@ -85,7 +82,7 @@ void Launcher::start_observation(Fault* fault) {
 
   std::cout << "run QEMU" << std::endl;
   // Launch QEMU with POK
-  if(!run_qemu())
+  if(!run_qemu(fault.get_pok_appli_path()))
     {
       log_creator->write_error(QString("Can't launch QEMU."));
       return;
@@ -106,7 +103,7 @@ void Launcher::start_observation(Fault* fault) {
     {
       usleep(10000000);
       // Copy QEMU ram into file RAM_FILE_NAME and parse it to find the variables
-      QString ram_file = pok_appli_path + "/generated-code/cpu/" + RAM_FILE_NAME;
+      QString ram_file = fault.get_pok_appli_path() + "/generated-code/cpu/" + RAM_FILE_NAME;
       std::cout << ram_file.toStdString() << std::endl;
       observer->ram_to_file(RAM_FILE_NAME);
       if(!log_creator->parse_ram(ram_file))
