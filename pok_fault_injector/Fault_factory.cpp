@@ -7,14 +7,20 @@ Fault_factory::Fault_factory(){
 /*!
 *  \brief Constructeur
 *
-*  Constructeur de la classe Fault_factory, qui instancie une faute et l'ajoute à la liste de faute
+*  Instancie une faute et l'ajoute à la liste de faute
 *
 *  \param id_fault : identificateur du type de faute
 *  \param id_target : identificateur de la cible de la faute
 */
-void Fault_factory::add_fault(QString id_fault, QString id_target){
-
-  faults.append(new Fault(id_fault, id_target));
+void Fault_factory::add_fault(QString id_fault, QString id_target, QString pok_path){
+  
+  QString name = id_fault + "-" + id_target + ".fault";
+  QFile fichier(name);
+  QString line;
+  fichier.open(QIODevice::ReadOnly);
+  QTextStream in(&fichier);
+  line = in.readLine();
+  faults.append(new Fault(id_fault, id_target, pok_path + "/" + line));
 
 }
 
@@ -27,7 +33,6 @@ void Fault_factory::add_fault(QString id_fault, QString id_target){
 */
 Fault* Fault_factory::next_fault(){
 
-    //retourne le premier element de la liste et le supprime
     if(!faults.isEmpty()){
         return faults.takeFirst();
     }

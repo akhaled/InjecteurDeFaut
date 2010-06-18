@@ -6,19 +6,21 @@
 
 class Fault{
 
-	public:
-	Fault(QString id_fault, QString id_target);
-	QStringList get_obs_vars();
-	QString get_id_fault();
-	QString get_id_target();
-	int *get_lengths();
 
-	private:
-	QString id_target;//!<identificateur de la cible de la faute
-	QString id_fault;//!<identificateur du type de faute
-        QStringList obs_vars;//!<la liste des variables à récupérer dans la RAM de QEMU par la partie observation. Lors de son instanciation, elle ira chercher cette liste dans son fichier .fault
-	int lengths[];//!<un tableau d’entier contenant la taille des variables précédentes en nombre d’octet
+private:
+  QString id_target;//!<identificateur de la cible de la faute
+  QString id_fault;//!<identificateur du type de faute
+  QStringList obs_vars;//!<la liste des variables à récupérer dans la RAM de QEMU par la partie observation. Lors de son instanciation, elle ira chercher cette liste dans son fichier .fault
+  QString pok_appli_path;
 
+
+public:
+  Fault(QString id_fault, QString id_target, QString pok_appli_path);
+  QStringList get_obs_vars();
+  QString get_id_fault();
+  QString get_id_target();
+  const QString & get_pok_appli_path();
+  
 
 };
 

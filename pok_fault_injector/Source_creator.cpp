@@ -28,7 +28,7 @@ Source_creator::Source_creator(QString config_file_path){
    injector_code_path_file_name = pok_appli_path + "/send.c";
    observer_code_path_file_name = pok_appli_path + "/receive.c";
    fichier.close();
-}
++}
 
 /*!
 *  \brief creer les fichiers C

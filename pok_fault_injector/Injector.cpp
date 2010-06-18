@@ -24,29 +24,16 @@ Injector::Injector(Log_creator *Log, const QString & config_file, const QString 
     error_handler = Log;
     initialize_environment(config_file, file_entry);
     initialize_fault_list(file_entry);   
-    injector_code_path_file_name = pok_appli_path + "/send.c";
-    observer_code_path_file_name = pok_appli_path + "/receive.c";
-
-}
-
-/*!
-*  \brief return pok_appli_path
-*
-*  Methode qui renvoie pok_appli_path
-*
-*  \return QString pok_appli_path
-*/
-QString Injector::get_pok_appli_path(){
-    return pok_appli_path;
 }
 
 /*!
 *  \brief preparation de l'environnement
 *
-*  Methode qui initializer les parametres de l'environnement
+*  verification de l'existence des fichiers nécessaires 
+*  au fonctionnement de POK
 *
 *  \param & config_file : le chemin absolue du fichier de configuration 
-*  \param & file_entry : l'entrée du fichier
+*  \param & file_entry : le fichier d'entrée
 */
 void Injector::initialize_environment(const QString & config_file, const QString & file_entry){
 
@@ -58,17 +45,17 @@ void Injector::initialize_environment(const QString & config_file, const QString
     //!Verifie que le fichier config existe
     if(fichier_config.exists()){
 
-        //!verifie l'existence des chemins indiques dans le fichier
+      //!verifie l'existence des chemins indiques dans le fichier
       fichier_config.open(QIODevice::ReadOnly);
       QTextStream in(&fichier_config);
       QString line= in.readLine();
+      pok_path = line;
       QDir dir;
       bool valid=true;
 
       while (!line.isEmpty() && valid) {
         	dir = QDir(line);
         	valid = dir.exists();
-        	pok_appli_path = line;
             line= in.readLine();
     	}
 
@@ -137,7 +124,7 @@ void Injector::initialize_fault_list(const QString & file_entry){
 
         if(valid){
 
-          factory->add_fault(list.at(0), list.at(1));
+          factory->add_fault(list.at(0), list.at(1), pok_path);
           msg = "Ajout de " + list.at(0) + "-" + list.at(1) + " a la liste de fautes";
           
           error_handler->write_message(msg);
@@ -155,7 +142,7 @@ void Injector::initialize_fault_list(const QString & file_entry){
 /*!
 *  \brief verifier le validité du fichier .fault
 *
-*  Methode qui permet de verifier le fichier .fault correspondant à la faute en cours existe
+*  verifier l'existence du fichier .fault correspondant à la faute en cours
 *
 *  \param id_fault : identificateur du type de faute
 *  \param id_target : identificateur de la cible de la faute
@@ -172,7 +159,7 @@ bool Injector::fault_file_is_valid(QString id_fault, QString id_target){
 /*!
 *  \brief injection de la faute et generation du code POK
 *
-*  Methode qui injecte la faute et genere le code POK
+*  Recuperation de la première faute dans la liste de fautes, copie des fichiers C correspondant dans le repertoire cible, generation du code POK 
 *
 *  \return  Fault* current_fault
 */
@@ -190,16 +177,7 @@ Fault* Injector::inject(){
 
     error_handler->write_message(msg);
     
-    QString fault_file_name = current_fault->get_id_fault() + "-" + current_fault->get_id_target() + ".fault";
-    source->create_C_file(fault_file_name);
-
-    QFile fichier_inject;
-    QFile fichier_obs;
-        
-    fichier_inject.setFileName(injector_code_path_file_name);    	
-    fichier_obs.setFileName(observer_code_path_file_name);
-
-    bool valid = fichier_inject.exists() && fichier_obs.exists();
+    bool valid = source->create_C_file(current_fault);
 
     if(valid){
     	msg = "fichiers.C OK";
