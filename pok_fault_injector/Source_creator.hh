@@ -14,7 +14,7 @@ class Source_creator
    Source_creator(QString config_file_path);
 
    public:
-   void create_C_file(QString fault_file_path);
+   bool create_C_file(Fault* fault);
    bool generate_pok_code();
    QString concatenate(QString str1, QString str2);
    const QString & get_pok_path();

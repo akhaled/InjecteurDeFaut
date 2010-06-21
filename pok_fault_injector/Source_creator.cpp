@@ -1,6 +1,9 @@
-#include "Source_creator.hh"
+#include "Fault.hh"
 #include <iostream>
 #include <stdlib.h>
+
+
+#include "Source_creator.hh"
 using namespace std;
 
 /*!
@@ -37,10 +40,10 @@ Source_creator::Source_creator(QString config_file_path){
 *
 * \param fault_file_path : le chemin absolue du fichier faute
 */
-void Source_creator::create_C_file(Fault* fault){
-  config = fault.get_fault_file_path();
+bool Source_creator::create_C_file(Fault* fault){
+  config = fault->get_fault_file_path();
    
-  pok_appli_path = fault.get_pok_appli_path();
+  pok_appli_path = fault->get_pok_appli_path();
 
   fichier.setFileName(config);
   if(!fichier.open(QIODevice::ReadOnly))
@@ -109,6 +112,7 @@ void Source_creator::create_C_file(Fault* fault){
    destination.setDevice(& fichier);
    destination << code_obs;
    fichier.close();*/
+    return true;
 }
 
 /*!

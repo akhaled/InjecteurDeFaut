@@ -1,3 +1,6 @@
+#include <QFile>
+#include <QTextStream>
+
 #include "Fault_factory.hh"
 
 Fault_factory::Fault_factory(){

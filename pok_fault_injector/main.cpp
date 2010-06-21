@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 
   Log_creator log(Journal);
   Injector injector(&log, config_file, file_entry);
-  Launcher launcher(&log, injector.get_pok_appli_path());
+  Launcher launcher(&log);
 
 
   Fault* current_fault = injector.inject();

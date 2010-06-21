@@ -82,7 +82,7 @@ void Launcher::start_observation(Fault* fault) {
 
   std::cout << "run QEMU" << std::endl;
   // Launch QEMU with POK
-  if(!run_qemu(fault.get_pok_appli_path()))
+  if(!run_qemu(fault->get_pok_appli_path()))
     {
       log_creator->write_error(QString("Can't launch QEMU."));
       return;
@@ -103,7 +103,7 @@ void Launcher::start_observation(Fault* fault) {
     {
       usleep(10000000);
       // Copy QEMU ram into file RAM_FILE_NAME and parse it to find the variables
-      QString ram_file = fault.get_pok_appli_path() + "/generated-code/cpu/" + RAM_FILE_NAME;
+      QString ram_file = fault->get_pok_appli_path() + "/generated-code/cpu/" + RAM_FILE_NAME;
       std::cout << ram_file.toStdString() << std::endl;
       observer->ram_to_file(RAM_FILE_NAME);
       if(!log_creator->parse_ram(ram_file))

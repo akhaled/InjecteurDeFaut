@@ -19,7 +19,7 @@ private:
 public:
   Launcher(Log_creator* log, int loop_nb = 1);
   ~Launcher();
-  bool run_qemu();
+  bool run_qemu(const QString& pok_appli_path);
   void exit_qemu();
   // Only meaningfull if we do not start qemu with "make run"
   //  QProcess::ProcessState qemu_state(); 
