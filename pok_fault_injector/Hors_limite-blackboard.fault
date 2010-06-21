@@ -1,29 +1,5 @@
-/pok
-/pok
-/pok
-#DEBUT INJECTER# 
-#include <types.h>
-#include <libc/stdio.h>
-
-uint8_t toto = 0;
-
-void user_send (uint8_t* t)
-{
-   *t = toto; 
-   printf ("J'envoie la valeur %d\n", toto);
-   toto++;
-}
-#FIN INJECTER# 
-/pok
-/pok
-#DEBUT OBSERVER#
-#include <types.h>
-#include <libc/stdio.h>
-
-char tab[23] = "tagbeginvar1,var2tagend";
-
-void user_receive (uint8_t t)
-{
-   printf ("Je recois la valeur %d\n", t);
-}
-#FIN OBSERVER#
+examples/test_fautes
+#DEBUT FICHIER#
+../send.c
+../observer.c
+#FIN FICHIER#
