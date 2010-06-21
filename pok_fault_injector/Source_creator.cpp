@@ -4,11 +4,11 @@
 using namespace std;
 
 /*!
-*  \brief Constructeur
+* \brief Constructeur
 *
-*  Constructeur de la classe Source_creator
+* Constructeur de la classe Source_creator
 *
-*  \param config_file_path : le chemin absolue du fichier de configuration 
+* \param config_file_path : le chemin absolue du fichier de configuration
 */
 Source_creator::Source_creator(QString config_file_path){
 
@@ -24,33 +24,38 @@ Source_creator::Source_creator(QString config_file_path){
 
    pok_path = in.readLine();
    ocarina_path = in.readLine();
-   pok_appli_path = in.readLine();
-   injector_code_path_file_name = pok_appli_path + "/send.c";
-   observer_code_path_file_name = pok_appli_path + "/receive.c";
+   //pok_appli_path = in.readLine();
+   //injector_code_path_file_name = pok_appli_path + "/send.c";
+   //observer_code_path_file_name = pok_appli_path + "/receive.c";
    fichier.close();
-+}
+}
 
 /*!
-*  \brief creer les fichiers C
+* \brief creer les fichiers C
 *
-*  Creer les fichiers C du code injecteur de fautes et de l'observateur
+* Creer les fichiers C du code injecteur de fautes et de l'observateur
 *
-*  \param fault_file_path : le chemin absolue du fichier faute
+* \param fault_file_path : le chemin absolue du fichier faute
 */
-void Source_creator::create_C_file(QString fault_file_path){
-    config = fault_file_path;
+void Source_creator::create_C_file(Fault* fault){
+  config = fault.get_fault_file_path();
    
-    fichier.setFileName(config);
-    if(!fichier.open(QIODevice::ReadOnly))
+  pok_appli_path = fault.get_pok_appli_path();
+
+  fichier.setFileName(config);
+  if(!fichier.open(QIODevice::ReadOnly))
     {
-        message = "Impossible d'ouvrir le fichier " + fichier.fileName();
-        cout << message.toStdString()<< endl;
-        exit(0);
+      message = "Impossible d'ouvrir le fichier " + fichier.fileName();
+      cout << message.toStdString()<< endl;
+      exit(0);
     }
-    code_inj = Source_creator::concatenate("#DEBUT INJECTER# ", "#FIN INJECTER# ");
-    fichier.close();
+  code_inj = Source_creator::concatenate("#DEBUT FICHIER# ", "#FIN FICHIER# ");
+  fichier.close();
+  
+    
+    
    
-    fichier.setFileName(config);
+    /*fichier.setFileName(config);
     if(!fichier.open(QIODevice::ReadOnly))
     {
         message = "Impossible d'ouvrir le fichier " + fichier.fileName();
@@ -58,9 +63,9 @@ void Source_creator::create_C_file(QString fault_file_path){
         exit(0);
     }
     code_obs = Source_creator::concatenate("#DEBUT OBSERVER#", "#FIN OBSERVER#");
-    fichier.close();
+    fichier.close();*/
    
-    fichier.setFileName(injector_code_path_file_name);
+  fichier.setFileName(pok_appli_path + "/temp.txt");
     if(!fichier.open(QIODevice::WriteOnly | QIODevice::Text)){
         message = "Impossible d'ouvrir le fichier " + fichier.fileName();
         cout << message.toStdString()<< endl;
@@ -70,7 +75,32 @@ void Source_creator::create_C_file(QString fault_file_path){
     destination << code_inj;
     fichier.close();
 
-    fichier.setFileName(observer_code_path_file_name);
+    if(!fichier.open(QIODevice::ReadOnly)){
+        QString msg = "impossible d'ouvrir " + fichier.fileName();
+        cout << "\033[31m" << msg.toStdString()<< endl;
+        cout << "\033[30m" << endl;
+        exit(0);
+    }
+    QTextStream in_int(&fichier);
+    cout << "path_appli_path= " + pok_appli_path.toStdString()<< endl;
+    
+    while (!in_int.atEnd())
+          {
+           path_temp = in_int.readLine();
+           cout << "path_temp= " + path_temp.toStdString()<< endl; 
+           file.setFileName(path_temp);
+           QString s = "/";
+           int ix = path_temp.lastIndexOf(s); 
+           cout << "ix = " + ix<< endl;
+           int size = path_temp.size();
+           cout << "size = " + size<< endl;
+           path_temp = path_temp.right(size-ix);
+           cout << "path_temp_con= " + path_temp.toStdString()<< endl;
+           file.copy(pok_appli_path + path_temp);
+          }
+    fichier.remove();
+
+    /*fichier.setFileName(observer_code_path_file_name);
     if(!fichier.open(QIODevice::WriteOnly | QIODevice::Text)){
         message = "Impossible d'ouvrir le fichier " + fichier.fileName();
         cout << message.toStdString()<< endl;
@@ -78,24 +108,24 @@ void Source_creator::create_C_file(QString fault_file_path){
     }
    destination.setDevice(& fichier);
    destination << code_obs;
-   fichier.close();
+   fichier.close();*/
 }
 
 /*!
-*  \brief Generer code pok
+* \brief Generer code pok
 *
-*  Generer le code pok à partir du model AADL et des fichiers C de l'application
+* Generer le code pok à partir du model AADL et des fichiers C de l'application
 *
-*  \return TRUE si la generation est terminée avec succés, sinon return FALSE
+* \return TRUE si la generation est terminée avec succés, sinon return FALSE
 */
-bool  Source_creator::generate_pok_code(){
+bool Source_creator::generate_pok_code(){
 
     //mise en place des variables d'environnement
 
     QString env1 = "export POK_PATH=" + pok_path;
     QString env2 = "export PATH=" + ocarina_path + ":$PATH";
 
-    QString chemin = pok_appli_path; 
+    QString chemin = pok_appli_path;
     //QProcess process;
     //cout << env1.toStdString()<< endl;
     //process.start("export POK_PATH=/cal/nfs3/mspcasi/ngougo/Documents/pok-20100317");
@@ -105,11 +135,11 @@ bool  Source_creator::generate_pok_code(){
     //process.start("export PATH=/cal/nfs3/mspcasi/ngougo/Documents/ocarina-2.0w-suite-x86-linux-20100610/bin:$PATH");
    // process.waitForFinished();
 
-    QProcess process1;    
+    QProcess process1;
     process1.setWorkingDirectory( chemin);
     process1.start("make");
     bool var = process1.waitForFinished();
-    if (var == false) { 
+    if (var == false) {
         return false;
     }
     else{
@@ -123,15 +153,15 @@ bool  Source_creator::generate_pok_code(){
 }
 
 /*!
-*  \brief recuperer le code 
+* \brief recuperer le code
 *
-*  Recuperer le code entre les tags
+* Recuperer le code entre les tags
 *
-*  \param str1 : tag de début de code à récupérer 
-*  \param str2 : tag de fin de code à récupérer
-*  \return QString code  
+* \param str1 : tag de début de code à récupérer
+* \param str2 : tag de fin de code à récupérer
+* \return QString code
 */
-QString Source_creator::concatenate(QString str1, QString str2)  {
+QString Source_creator::concatenate(QString str1, QString str2) {
 
   QString s1 = str1;
   QString s2 = str2;
@@ -139,6 +169,8 @@ QString Source_creator::concatenate(QString str1, QString str2)  {
   code = "";
   message= "";
 
+  message = destination.readLine();
+  pok_appli_path = message;
   while ((QString::compare(message, s1, Qt::CaseInsensitive))!=0){
     message = destination.readLine();
   }
@@ -154,4 +186,9 @@ QString Source_creator::concatenate(QString str1, QString str2)  {
   }
   code.append("\0");
   return code;
+}
+
+
+const QString& Source_creator::get_pok_path(){
+return pok_path;
 }

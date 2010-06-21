@@ -17,6 +17,7 @@ class Source_creator
    void create_C_file(QString fault_file_path);
    bool generate_pok_code();
    QString concatenate(QString str1, QString str2);
+   const QString & get_pok_path();
 
 
    private:
@@ -36,7 +37,8 @@ class Source_creator
    QString str1;//!<tag de début de code à récupérer
    QString str2;//!<tag de fin de code à récupérer
    QString signature;//!<<variable interne du processus
-  
+   QFile file;
+   QString path_temp; 
   
 };
 

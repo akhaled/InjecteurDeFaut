@@ -13,7 +13,7 @@ Fault::Fault(QString id_fault, QString id_target, QString pok_appli_path){
     this.id_fault = id_fault;
     this.id_target = id_target;
     this.pok_appli_path = pok_appli_path;
-
+    this.fault_file_path = id_fault + "-" + id_target + ".fault";
 }
 
 /*!
@@ -24,7 +24,7 @@ Fault::Fault(QString id_fault, QString id_target, QString pok_appli_path){
 *  \return obs_vars
 */
 QStringList Fault::get_obs_vars(){
-	return Fault::obs_vars;
+	return obs_vars;
 }
 
 /*!
@@ -34,7 +34,7 @@ QStringList Fault::get_obs_vars(){
 *
 *  \return QStringList id_fault
 */
-QString Fault::get_id_fault(){
+const QString& Fault::get_id_fault(){
 	return this.id_fault;
 }
 
@@ -45,7 +45,7 @@ QString Fault::get_id_fault(){
 *
 *  \return id_target
 */
-QString Fault::get_id_target(){
+const QString& Fault::get_id_target(){
 	return this.id_target;
 }
 
@@ -56,6 +56,18 @@ QString Fault::get_id_target(){
 *
 *  \return pok_appli_path
 */
-QString Fault::get_pok_appli_path(){
+const QString& Fault::get_pok_appli_path(){
 	return this.pok_appli_path;
 }
+
+/*!
+*  \brief getteur pour fault_file_path
+*
+*  
+*
+*  \return fault_file_path
+*/
+const QString& Fault::get_fault_file_path(){
+	return this.fault_file_path;
+}
+
