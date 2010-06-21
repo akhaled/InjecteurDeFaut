@@ -79,13 +79,14 @@ bool Log_creator::parse_ram(const QString& file_path){
 
   // Get the ram
   ram = ram_file.readAll();
-  std::cout << "SIZE: " << ram_file.size() << std::endl;
+
 
   do {
     // Search the tags in the ram
     begin_tag_index = ram.indexOf(begin_tag, begin_tag_index);
     end_tag_index = ram.indexOf(end_tag, begin_tag_index);
 
+    
     if(begin_tag_index == -1 || end_tag_index == -1)
       {
         write_message("Can't find the vars in RAM");
@@ -100,7 +101,7 @@ bool Log_creator::parse_ram(const QString& file_path){
 
     // separates the vars
     values = vars.split(sep);
-
+ 
   }
   // We didn't find the right numbers of variables
   while(values.length() != obs_vars.length());

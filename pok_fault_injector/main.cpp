@@ -21,17 +21,21 @@ int main(int argc, char *argv[])
   QString config_file(CONFIG_FILE);
 
   Log_creator log(Journal);
+
   //  Injector injector(&log, config_file, file_entry);
   Launcher launcher(&log);
-
+  Fault_factory factory;
+  
 
   //  Fault* current_fault = injector.inject();
+
+
 
   //  while(current_fault != NULL)
   //   {
 
-  Fault current_fault("Hors_limite", "blackboard", "/home/vince/inf380/pok-20100317/examples/test_fautes");
-  launcher.start_observation(&current_fault);
+  factory.add_fault("Hors_limite", "blackboard", "/home/vince/inf380/pok-20100317");
+  launcher.start_observation(factory.next_fault());
       //    current_fault = injector.inject();
       //}
 
