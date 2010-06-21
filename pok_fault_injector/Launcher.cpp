@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include "Launcher.hh"
 #define QEMU_COMMAND "make -C generated-code run"
-#define TIME 1000000
+#define TIME 5000000
 #define RAM_FILE_NAME "qemu_ram"
 //#define QEMU_COMMAND "qemu -cdrom xubuntu-10.04-desktop-i386.iso"
 

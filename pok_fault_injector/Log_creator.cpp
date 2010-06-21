@@ -43,7 +43,8 @@ Log_creator::~Log_creator() {
 /*!
 *  \brief cherche dans ram les variables
 *
-*  Methode qui qui cherche dans ram les variables de obs_vars et qui remplie values avec ces dernières
+*  Methode qui qui cherche dans ram les variables spécifiées dans le fichier .fault
+*  et qui écrits leurs valeurs dans le fichier journal
 *
 *  \return TRUE si les variables ont bien été trouvées, sinon retourne FALSE
 */
@@ -89,8 +90,7 @@ bool Log_creator::parse_ram(const QString& file_path){
     
     if(begin_tag_index == -1 || end_tag_index == -1)
       {
-        write_message("Can't find the vars in RAM");
-        break;
+        return false;
       }
 
     begin_tag_index += begin_tag.length();
@@ -144,6 +144,7 @@ void Log_creator::write_error(const QString& error_message){
   log_file.close();
 }
 
+
 /*!
 *  \brief écrit les messages dans le rapport
 *
@@ -162,6 +163,9 @@ void Log_creator::write_message(const QString& message) {
   log_file.close();
 
 }
+
+
+
 
 /*!
 *  \brief mise à jour de fault

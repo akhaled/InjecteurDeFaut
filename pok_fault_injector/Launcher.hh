@@ -17,7 +17,7 @@ private:
 
 
 public:
-  Launcher(Log_creator* log, int loop_nb = 1);
+  Launcher(Log_creator* log, int loop_nb = 5);
   ~Launcher();
   bool run_qemu(const QString& pok_appli_path);
   void exit_qemu();
