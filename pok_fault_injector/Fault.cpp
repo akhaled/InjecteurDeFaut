@@ -10,10 +10,10 @@
 */
 Fault::Fault(QString id_fault, QString id_target, QString pok_appli_path){
 
-    id_fault = id_fault;
-    id_target = id_target;
-    pok_appli_path = pok_appli_path;
-    fault_file_path = id_fault + "-" + id_target + ".fault";
+    this->id_fault = id_fault;
+    this->id_target = id_target;
+    this->pok_appli_path = pok_appli_path;
+    this->fault_file_path = id_fault + "-" + id_target + ".fault";
 }
 
 /*!

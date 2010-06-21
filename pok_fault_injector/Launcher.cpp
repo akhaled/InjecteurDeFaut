@@ -44,14 +44,6 @@ bool Launcher::run_qemu(const QString& pok_appli_path) {
 
   //Go in the pok appli path to launch the command
   QDir::setCurrent(pok_appli_path);
-  //qemu_process.setWorkingDirectory(pok_appli_path);
-  // Redirect QEMU output : doesn't work yet
-  // qemu_process.setStandardOutputFile(QString("QemuOutput"));
-  // qemu_process.setStandardErrorFile(QString("QemuError"));
-
-
-  //qemu_process.start(command);
-  //return qemu_process.waitForStarted();
   return qemu_process.startDetached(command);
 }
 
@@ -62,12 +54,6 @@ void Launcher::exit_qemu() {
   observer->exit_qemu();
 }
 
-/* This method is usefull if we launch qemu ourselves, not with "make run"
-QProcess::ProcessState Launcher::qemu_state() {
-  return qemu_process.state();
-}
-*/
-
 /*!
 *  \brief commencer l'observation
 *
@@ -77,6 +63,8 @@ QProcess::ProcessState Launcher::qemu_state() {
 */
 void Launcher::start_observation(Fault* fault) {
 
+
+  QString ram_file = fault->get_pok_appli_path() + "/generated-code/cpu/" + RAM_FILE_NAME;
   log_creator->set_fault(fault);
 
 
@@ -102,21 +90,15 @@ void Launcher::start_observation(Fault* fault) {
   for(int i = 0; i < obs_loops_nb; i++)
     {
       usleep(10000000);
+
       // Copy QEMU ram into file RAM_FILE_NAME and parse it to find the variables
-      QString ram_file = fault->get_pok_appli_path() + "/generated-code/cpu/" + RAM_FILE_NAME;
-      std::cout << ram_file.toStdString() << std::endl;
       observer->ram_to_file(RAM_FILE_NAME);
       if(!log_creator->parse_ram(ram_file))
         {
-          log_creator->write_error("Can't find the tag in the ram.");
-        }
-      else
-        {
-          log_creator->write_obs_vars();
+          log_creator->write_error("Can't parse the ram.");
         }
         usleep(TIME);
     }
-
 
   
   exit_qemu();

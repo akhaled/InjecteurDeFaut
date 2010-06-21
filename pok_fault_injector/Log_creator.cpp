@@ -51,6 +51,7 @@ bool Log_creator::parse_ram(const QString& file_path){
   int time = 0;
   QList<QByteArray> values; 
   QString num;
+  //  QStringList obs_vars = fault->get_obs_vars();
 
   usleep(2000000);
 
@@ -73,13 +74,6 @@ bool Log_creator::parse_ram(const QString& file_path){
   // Get the ram
   ram = ram_file.readAll();
 
-  write_message("**** SIZE of RAM:");
-  write_message(num.setNum(ram.length()));
-
-
-  write_message("**** SIZE of RAM FILE:");
-  write_message(num.setNum(ram_file.atEnd()));
-
   // Search the tag
   begin_tag_index = ram.indexOf(begin_tag);
   end_tag_index = ram.indexOf(end_tag);
@@ -93,6 +87,7 @@ bool Log_creator::parse_ram(const QString& file_path){
   if(end_tag_index == -1)
     {
       write_error("Can't find the tag "  + end_tag + " in ram");
+      return false;
     }
 
   write_message("Tags " + begin_tag + " and " + end_tag + " found");
@@ -101,48 +96,20 @@ bool Log_creator::parse_ram(const QString& file_path){
 
   
   values = vars.split(SEPARATOR);
-  write_message("**** VALUES ****");
+  
+  write_message("**** Observation: " + fault->get_id_fault() + "," + fault->get_id_target() + " ****");
+
+  
   for(int i = 0; i < values.length(); i++)
-    { 
-      write_message(QString(values.at(i)));
+    {
+      write_message(/*obs_vars.at(i)*/ + ": " + QString(values.at(i)));
     }
 
-
-  //write_message("**** VALUES ****");
-  //write_message(QString(vars));
+  write_message("**************************************");
   
   return true;
 }
 
-/*!
-*  \brief écrit les paramètres dans le rapport
-*
-*  Methode qui écrit dans le fichier de rapport les paramètres d’observation et leurs valeurs
-*
-*/
-void Log_creator::write_obs_vars(){
-
-  //  QStringList obs_vars = fault->get_obs_vars();
-  log_file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append);
-
-  QTextStream out(&log_file);
-  out << "***********" << "\n";
-  out << "Observation: " << fault->get_id_fault() << "," << fault->get_id_target() + "\n";
-
-
-  //xout << values;
-  /*
-  for(int i = 0; i < obs_vars.length(); i++)
-    {
-      out << obs_vars.at(i) << ": " << values.at(i) << "\n";
-    }
-  */
-
-
-
-  out.flush();
-  log_file.close();
-}
 
 /*!
 *  \brief écrit les messages des erreurs dans le rapport
