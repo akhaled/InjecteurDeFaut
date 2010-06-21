@@ -16,7 +16,8 @@ private:
 
 public:
   Fault(QString id_fault, QString id_target, QString pok_appli_path);
-  QStringList get_obs_vars();
+  void add_obs_var(const QString& var);
+  const QStringList& get_obs_vars();
   const QString& get_id_fault();
   const QString& get_id_target();
   const QString& get_pok_appli_path();

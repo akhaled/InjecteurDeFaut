@@ -3,3 +3,6 @@ examples/test_fautes
 ../send.c
 ../observer.c
 #FIN FICHIER#
+#VARIABLES
+var1
+var2

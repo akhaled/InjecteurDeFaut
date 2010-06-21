@@ -16,6 +16,19 @@ Fault::Fault(QString id_fault, QString id_target, QString pok_appli_path){
     this->fault_file_path = id_fault + "-" + id_target + ".fault";
 }
 
+
+/*!
+*  \brief permet d'ajouter une variable à observer à la faute
+*
+*  
+*
+*  \return obs_vars
+*/
+void Fault::add_obs_var(const QString& obs_var)
+{
+  obs_vars.append(QString(obs_var));
+}
+
 /*!
 *  \brief getteur pour obs_vars
 *
@@ -23,7 +36,7 @@ Fault::Fault(QString id_fault, QString id_target, QString pok_appli_path){
 *
 *  \return obs_vars
 */
-QStringList Fault::get_obs_vars(){
+const QStringList& Fault::get_obs_vars(){
 	return obs_vars;
 }
 

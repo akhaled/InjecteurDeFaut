@@ -3,11 +3,10 @@
 #include <QTextStream>
 #include <QDir>
 
+#include "tags.h"
 #include "Log_creator.hh"
 
-#define BEGINTAG "tagbegin"
-#define ENDTAG "tagend"
-#define SEPARATOR ','
+#define RAM_SIZE 128*1024*1024
 
 /*!
 *  \brief Constructeur
@@ -24,8 +23,11 @@ Log_creator::Log_creator(const QString& path_to_journal) {
   log_file.open(QIODevice::WriteOnly | QIODevice::Text);
   log_file.close();
 
-  begin_tag = BEGINTAG;
-  end_tag = ENDTAG;
+  QByteArray tagsArray(tags);
+
+  begin_tag = tagsArray.left(TAG_SIZE);
+  end_tag = tagsArray.right(TAG_SIZE);
+  sep = separator;
 
   fault = NULL;
 }
@@ -35,6 +37,8 @@ Log_creator::Log_creator(const QString& path_to_journal) {
 */
 Log_creator::~Log_creator() {
 }
+
+
 
 /*!
 *  \brief cherche dans ram les variables
@@ -47,15 +51,16 @@ bool Log_creator::parse_ram(const QString& file_path){
   QFile ram_file(file_path);
   QByteArray ram;
   QByteArray vars;
-  int begin_tag_index, end_tag_index;
+  int begin_tag_index = 0;
+  int end_tag_index = 0;
   int time = 0;
   QList<QByteArray> values; 
   QString num;
-  //  QStringList obs_vars = fault->get_obs_vars();
+  QStringList obs_vars = fault->get_obs_vars();
 
-  usleep(2000000);
-
-  while(!ram_file.open(QIODevice::ReadOnly | QIODevice::Text) && time < 10)
+  // wait for the ram file to be written
+  while((ram_file.size() < RAM_SIZE || !ram_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        && time < 10)
     {
       usleep(1000000);
       time++;
@@ -71,42 +76,51 @@ bool Log_creator::parse_ram(const QString& file_path){
       write_message("RAM file opened");
     }
 
+
   // Get the ram
   ram = ram_file.readAll();
+  std::cout << "SIZE: " << ram_file.size() << std::endl;
 
-  // Search the tag
-  begin_tag_index = ram.indexOf(begin_tag);
-  end_tag_index = ram.indexOf(end_tag);
+  do {
+    // Search the tags in the ram
+    begin_tag_index = ram.indexOf(begin_tag, begin_tag_index);
+    end_tag_index = ram.indexOf(end_tag, begin_tag_index);
 
-  // If we didn't find it
-  if(begin_tag_index == -1)
-    {
-      write_error("Can't find the tag "  + begin_tag + " in ram");
-      return false;
-    }
-  if(end_tag_index == -1)
-    {
-      write_error("Can't find the tag "  + end_tag + " in ram");
-      return false;
-    }
+    if(begin_tag_index == -1 || end_tag_index == -1)
+      {
+        write_message("Can't find the vars in RAM");
+        break;
+      }
 
-  write_message("Tags " + begin_tag + " and " + end_tag + " found");
-  
-  vars = ram.mid(begin_tag_index + begin_tag.length(), end_tag_index - begin_tag_index - begin_tag.length());
+    begin_tag_index += begin_tag.length();
 
-  
-  values = vars.split(SEPARATOR);
-  
-  write_message("**** Observation: " + fault->get_id_fault() + "," + fault->get_id_target() + " ****");
+    // get the variables between the tags
+    vars = ram.mid(begin_tag_index,
+                   end_tag_index - begin_tag_index);
 
-  
+    // separates the vars
+    values = vars.split(sep);
+
+  }
+  // We didn't find the right numbers of variables
+  while(values.length() != obs_vars.length());
+
+
+
+  // writes vars in the log file
+  write_message("**** Observation: " + fault->get_id_fault() + ","
+                + fault->get_id_target() + " ****");
+
   for(int i = 0; i < values.length(); i++)
     {
-      write_message(/*obs_vars.at(i)*/ + ": " + QString(values.at(i)));
+      write_message(obs_vars.at(i) + ": " + QString(values.at(i)));
     }
 
   write_message("**************************************");
   
+
+  ram_file.close();
+  ram_file.remove();
   return true;
 }
 

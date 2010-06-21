@@ -20,10 +20,27 @@ void Fault_factory::add_fault(QString id_fault, QString id_target, QString pok_p
   QString name = id_fault + "-" + id_target + ".fault";
   QFile fichier(name);
   QString line;
+  QString fault_file_data;
+  QStringList vars;
+  QString var_tag("#VARIABLES");
+
   fichier.open(QIODevice::ReadOnly);
   QTextStream in(&fichier);
   line = in.readLine();
-  faults.append(new Fault(id_fault, id_target, pok_path + "/" + line));
+  
+  Fault* fault = new Fault(id_fault, id_target, pok_path + "/" + line);
+  fault_file_data = in.readAll();
+  vars = fault_file_data.section("#VARIABLES", -1).split('\n');
+
+  for(int i = 0; i < vars.length(); i++)
+    {
+      if(!vars.at(i).isEmpty())
+        {
+          fault->add_obs_var(vars.at(i));
+        }
+    }
+
+  faults.append(fault);
 
 }
 

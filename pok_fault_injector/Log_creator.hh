@@ -14,7 +14,7 @@ private:
   QByteArray begin_tag;
   QByteArray end_tag;
   QFile log_file;//!<le fichier qui contiendra le rapport
- 
+  char sep;
 
 public:
   Log_creator(const QString& path_to_journal);

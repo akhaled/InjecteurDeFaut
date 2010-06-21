@@ -89,15 +89,15 @@ void Launcher::start_observation(Fault* fault) {
   
   for(int i = 0; i < obs_loops_nb; i++)
     {
-      usleep(10000000);
-
+      usleep(TIME);
       // Copy QEMU ram into file RAM_FILE_NAME and parse it to find the variables
       observer->ram_to_file(RAM_FILE_NAME);
+
       if(!log_creator->parse_ram(ram_file))
         {
           log_creator->write_error("Can't parse the ram.");
         }
-        usleep(TIME);
+
     }
 
   
