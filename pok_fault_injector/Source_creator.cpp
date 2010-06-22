@@ -116,8 +116,8 @@ bool Source_creator::generate_pok_code(){
 
     //mise en place des variables d'environnement
 
-    QString env1 = "export POK_PATH=" + pok_path;
-    QString env2 = "export PATH=" + ocarina_path + ":$PATH";
+  //    QString env1 = "POK_PATH=" + pok_path;
+  //    QString env2 = "PATH=" + ocarina_path + ":" + getenv("PATH");
 
     QString chemin = pok_appli_path;
     //QProcess process;
@@ -129,7 +129,20 @@ bool Source_creator::generate_pok_code(){
     //process.start("export PATH=/cal/nfs3/mspcasi/ngougo/Documents/ocarina-2.0w-suite-x86-linux-20100610/bin:$PATH");
    // process.waitForFinished();
 
+    /*
+    putenv(env1.toAscii().data());
+    putenv(env2.toAscii().data());
+
+    cout << getenv("PATH") << endl
+         << getenv("POK_PATH") << endl;
+    */
     QProcess process1;
+    
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    
+    env.insert("POK_PATH", pok_path);
+    env.insert("PATH", env.value("PATH") + ":" + ocarina_path);
+    process1.setProcessEnvironment(env);
     process1.setWorkingDirectory( chemin);
     process1.start("make");
     bool var = process1.waitForFinished();

@@ -13,16 +13,23 @@
 *
 *  Constructeur de la classe Launcher
 *
-*  \param *Log : 
-*  \param loop_nb : 
-*  \param pok_appli_path :
-*  \param obs_loops_nb : 
+*  \param log : Le log_creator chargé de l'écriture du rapport
+*  \param pok_path : Chemin vers le répertoire du code source de pok
+*  \param loop_nb : Nombre de fois où l'on récupère la ram
 */
-Launcher::Launcher(Log_creator* log, int loop_nb): obs_loops_nb(loop_nb)
+Launcher::Launcher(Log_creator* log, const QString& pok_path,
+                   int loop_nb): obs_loops_nb(loop_nb)
 {
+  current_path = QDir::currentPath();
   log_creator = log;
+  this->pok_path = pok_path;
   // Create the observer
   observer= new Observer();
+
+  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+  env.insert("POK_PATH", pok_path);
+  qemu_process.setProcessEnvironment(env);
+
 }
 
 /*!
@@ -45,7 +52,14 @@ bool Launcher::run_qemu(const QString& pok_appli_path) {
 
   //Go in the pok appli path to launch the command
   QDir::setCurrent(pok_appli_path);
+
+  QString env = "POK_PATH=" + pok_path;
+
+  std::cout << putenv(env.toAscii().data()) << std::endl;
+
   return qemu_process.startDetached(command);
+  //qemu_process.start(command);
+  //return qemu_process.waitForStarted();
 }
 
 /*!
@@ -53,6 +67,7 @@ bool Launcher::run_qemu(const QString& pok_appli_path) {
 */
 void Launcher::exit_qemu() {
   observer->exit_qemu();
+  QDir::setCurrent(current_path);
 }
 
 /*!

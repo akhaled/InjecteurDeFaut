@@ -64,14 +64,14 @@ void Injector::initialize_environment(const QString & config_file, const QString
           error_handler->write_message(msg);
     	}
     	else{
-          msg = "ERREUR: repertoires manquants";
+          msg = "repertoires manquants";
           error_handler->write_error(msg);
           exit(0);
     	}
         fichier_config.close();
     }
     else{
-      msg = "ERREUR: impossible de trouver " + config_file;
+      msg = "impossible de trouver " + config_file;
       error_handler->write_error(msg);
       exit(0);
     }
@@ -79,17 +79,12 @@ void Injector::initialize_environment(const QString & config_file, const QString
     //!verifie que le fichier passé en entrée existe
     if(fichier_entre.exists()){
 
-	/*
-	A completer!!!!!!!!!!!!!!!!!
-        verifier contenu de file_entry
-	*/
-
 
       msg = "fichier d'entre OK";
       error_handler->write_message(msg);
     }
     else{
-      msg = "ERREUR: impossible de trouver " + file_entry;
+      msg = "impossible de trouver " + file_entry;
       error_handler->write_error(msg);
       exit(0);
     }
@@ -123,7 +118,7 @@ void Injector::initialize_fault_list(const QString & file_entry){
       error_handler->write_message(msg);
     }
     else{
-      msg = "ERREUR: impossible de trouver " + list.at(0) + "-" + list.at(1) + ".fault";
+      msg = "impossible de trouver " + list.at(0) + "-" + list.at(1) + ".fault";
       error_handler->write_error(msg);
     }
     line = in.readLine();
@@ -185,10 +180,20 @@ Fault* Injector::inject(){
     error_handler->write_message(msg);
   }
   else{
-    msg = "ERREUR generation code POK";
+    msg = "generation code POK";
     error_handler->write_error(msg);
   }
   return current_fault;
+}
+
+/*!
+*  \brief Getteur pour pok_path 
+*  \return pok_path
+*/
+
+const QString& Injector::get_pok_path()
+{
+  return pok_path;
 }
 
 /*!
