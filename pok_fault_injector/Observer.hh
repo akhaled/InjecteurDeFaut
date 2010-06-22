@@ -21,6 +21,7 @@ public:
   QByteArray* get_ram();
   const QString& get_socket_path();
   void exit_qemu();
+  QLocalSocket::LocalSocketState get_state();
 };
 
 #endif
