@@ -115,3 +115,8 @@ void Observer::ram_to_file(const QString& file_path)
   qemu_socket->waitForReadyRead();
 
 }
+
+QLocalSocket::LocalSocketState Observer::get_state()
+{
+  return qemu_socket->state();
+}

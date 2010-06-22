@@ -1,5 +1,6 @@
 #include <iostream>
 #include <QDir>
+#include <QLocalSocket>
 #include <unistd.h>
 #include "Launcher.hh"
 #define QEMU_COMMAND "make -C generated-code run"
@@ -96,10 +97,26 @@ void Launcher::start_observation(Fault* fault) {
       if(!log_creator->parse_ram(ram_file))
         {
           log_creator->write_error("Can't parse the ram.");
+          if (observer->get_state() == QLocalSocket::UnconnectedState)
+            {
+              break;
+            }
         }
 
     }
 
+  switch(observer->get_state())
+    {
+    case QLocalSocket::UnconnectedState:
+      log_creator->write_message("QEMU crashed");
+      break;
+    case QLocalSocket::ConnectedState:
+      log_creator->write_message("QEMU did not crashed");
+      break;
+    default:
+      std::cout << "default" << std::endl;
+      break;
+    }
   
   exit_qemu();
   log_creator->write_message("exit QEMU");
