@@ -171,7 +171,7 @@ Fault* Injector::inject(){
     error_handler->write_message(msg);
   }
   else{
-    msg = "ERREUR fichier.C manquants";
+    msg = "fichier.C manquants";
     error_handler->write_error(msg);
     exit(0);
   }

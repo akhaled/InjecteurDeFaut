@@ -42,9 +42,7 @@ Source_creator::Source_creator(QString config_file_path){
 */
 bool Source_creator::create_C_file(Fault* fault){
   config = fault->get_fault_file_path();
-   
   pok_appli_path = fault->get_pok_appli_path();
-
   fichier.setFileName(config);
   if(!fichier.open(QIODevice::ReadOnly))
     {
@@ -52,7 +50,6 @@ bool Source_creator::create_C_file(Fault* fault){
     }
   code_inj = Source_creator::concatenate("#DEBUT FICHIER# ", "#FIN FICHIER# ");
   fichier.close();
-  
     
     
    
@@ -78,20 +75,20 @@ bool Source_creator::create_C_file(Fault* fault){
          return false;
     }
     QTextStream in_int(&fichier);
-    cout << "path_appli_path= " + pok_appli_path.toStdString()<< endl;
+    //cout << "path_appli_path= " + pok_appli_path.toStdString()<< endl;
     
     while (!in_int.atEnd())
           {
            path_temp = in_int.readLine();
-           cout << "path_temp= " + path_temp.toStdString()<< endl; 
+           //cout << "path_temp= " + path_temp.toStdString()<< endl; 
            file.setFileName(path_temp);
            QString s = "/";
            int ix = path_temp.lastIndexOf(s); 
-           cout << "ix = " + ix<< endl;
+           //cout << "ix = " + ix<< endl;
            int size = path_temp.size();
-           cout << "size = " + size<< endl;
+           //cout << "size = " + size<< endl;
            path_temp = path_temp.right(size-ix);
-           cout << "path_temp_con= " + path_temp.toStdString()<< endl;
+           //cout << "path_temp_con= " + path_temp.toStdString()<< endl;
            file.copy(pok_appli_path + path_temp);
           }
     fichier.remove();
@@ -167,7 +164,7 @@ QString Source_creator::concatenate(QString str1, QString str2) {
   message= "";
 
   message = destination.readLine();
-  pok_appli_path = message;
+
   while ((QString::compare(message, s1, Qt::CaseInsensitive))!=0){
     message = destination.readLine();
   }
