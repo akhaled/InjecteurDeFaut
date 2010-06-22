@@ -48,9 +48,7 @@ bool Source_creator::create_C_file(Fault* fault){
   fichier.setFileName(config);
   if(!fichier.open(QIODevice::ReadOnly))
     {
-      message = "Impossible d'ouvrir le fichier " + fichier.fileName();
-      cout << message.toStdString()<< endl;
-      exit(0);
+      return false;
     }
   code_inj = Source_creator::concatenate("#DEBUT FICHIER# ", "#FIN FICHIER# ");
   fichier.close();
@@ -70,19 +68,14 @@ bool Source_creator::create_C_file(Fault* fault){
    
   fichier.setFileName(pok_appli_path + "/temp.txt");
     if(!fichier.open(QIODevice::WriteOnly | QIODevice::Text)){
-        message = "Impossible d'ouvrir le fichier " + fichier.fileName();
-        cout << message.toStdString()<< endl;
-        exit(0);
+        return false;
     }
     destination.setDevice(&fichier);
     destination << code_inj;
     fichier.close();
 
     if(!fichier.open(QIODevice::ReadOnly)){
-        QString msg = "impossible d'ouvrir " + fichier.fileName();
-        cout << "\033[31m" << msg.toStdString()<< endl;
-        cout << "\033[30m" << endl;
-        exit(0);
+         return false;
     }
     QTextStream in_int(&fichier);
     cout << "path_appli_path= " + pok_appli_path.toStdString()<< endl;

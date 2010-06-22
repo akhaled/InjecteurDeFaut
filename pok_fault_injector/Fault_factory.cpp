@@ -47,7 +47,7 @@ void Fault_factory::add_fault(QString id_fault, QString id_target, QString pok_p
 /*!
 *  \brief return next fault
 *
-*  Methode qui retourne le premier element de la liste et le supprime
+*  Methode qui retourne le premier element de la liste et le supprime de la liste
 *
 *  \return Fault* faults si la liste des fautes n'est pas vide, sinon return NULL.
 */
