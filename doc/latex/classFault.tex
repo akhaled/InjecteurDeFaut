@@ -5,34 +5,37 @@
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classFault_afa721f3f73d123711fd6fdf0c88de148}{Fault} (QString id\_\-fault, QString id\_\-target)
+\hyperlink{classFault_a57b3289565045a3fa12021493dc59004}{Fault} (QString id\_\-fault, QString id\_\-target, QString pok\_\-appli\_\-path)
 \begin{DoxyCompactList}\small\item\em Constructeur. \item\end{DoxyCompactList}\item 
-QStringList \hyperlink{classFault_aad30675391b9f05cf15857dcbc8ab721}{get\_\-obs\_\-vars} ()
-\begin{DoxyCompactList}\small\item\em return obs\_\-vars \item\end{DoxyCompactList}\item 
-QString \hyperlink{classFault_a00cbe6276e5332ed8ec8f878e0a66731}{get\_\-id\_\-fault} ()
-\begin{DoxyCompactList}\small\item\em return id\_\-fault \item\end{DoxyCompactList}\item 
-QString \hyperlink{classFault_ac95f44eecf0fc1df45155571f6537a67}{get\_\-id\_\-target} ()
-\begin{DoxyCompactList}\small\item\em return id\_\-target \item\end{DoxyCompactList}\item 
-int $\ast$ \hyperlink{classFault_adfb3adf4ffb686acf6e093b8bebffb53}{get\_\-lengths} ()
-\begin{DoxyCompactList}\small\item\em return lengths \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+void \hyperlink{classFault_a14cf17c529e7b3a32ab83f7a65508cf0}{add\_\-obs\_\-var} (const QString \&var)
+\begin{DoxyCompactList}\small\item\em Permet d'ajouter une variable à observer à la faute. \item\end{DoxyCompactList}\item 
+const QStringList \& \hyperlink{classFault_aefee6c635192a72db5da4791a497d142}{get\_\-obs\_\-vars} ()
+\begin{DoxyCompactList}\small\item\em Getteur pour obs\_\-vars. \item\end{DoxyCompactList}\item 
+const QString \& \hyperlink{classFault_a1a5feabdd47460e5f9613440151a0617}{get\_\-id\_\-fault} ()
+\begin{DoxyCompactList}\small\item\em Getteur id\_\-fault. \item\end{DoxyCompactList}\item 
+const QString \& \hyperlink{classFault_ae3b9cb296c0c03eeddc621ef318c4ce5}{get\_\-id\_\-target} ()
+\begin{DoxyCompactList}\small\item\em Getteur pour id\_\-target. \item\end{DoxyCompactList}\item 
+const QString \& \hyperlink{classFault_a9092f9cf1b5845ea34b0036d548701e4}{get\_\-pok\_\-appli\_\-path} ()
+\begin{DoxyCompactList}\small\item\em Getteur pour pok\_\-appli\_\-path. \item\end{DoxyCompactList}\item 
+const QString \& \hyperlink{classFault_a372273140214ea42e90af11bfc2638a1}{get\_\-fault\_\-file\_\-path} ()
+\begin{DoxyCompactList}\small\item\em Getteur pour fault\_\-file\_\-path. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentation des constructeurs et destructeur}
-\hypertarget{classFault_afa721f3f73d123711fd6fdf0c88de148}{
+\hypertarget{classFault_a57b3289565045a3fa12021493dc59004}{
 \index{Fault@{Fault}!Fault@{Fault}}
 \index{Fault@{Fault}!Fault@{Fault}}
 \subsubsection[{Fault}]{\setlength{\rightskip}{0pt plus 5cm}Fault::Fault (
 \begin{DoxyParamCaption}
 \item[{QString}]{ id\_\-fault, }
-\item[{QString}]{ id\_\-target}
+\item[{QString}]{ id\_\-target, }
+\item[{QString}]{ pok\_\-appli\_\-path}
 \end{DoxyParamCaption}
 )}}
-\label{classFault_afa721f3f73d123711fd6fdf0c88de148}
+\label{classFault_a57b3289565045a3fa12021493dc59004}
 
 
 Constructeur. 
-
-Constructeur de la classe \hyperlink{classFault}{Fault}, qui va initialiser obs\_\-vars et lenghts en fonction des informations contenues dans le fichier .fault
 
 
 \begin{DoxyParams}{Paramètres}
@@ -40,77 +43,101 @@ Constructeur de la classe \hyperlink{classFault}{Fault}, qui va initialiser obs\
 
 
 \subsection{Documentation des fonctions membres}
-\hypertarget{classFault_a00cbe6276e5332ed8ec8f878e0a66731}{
-\index{Fault@{Fault}!get\_\-id\_\-fault@{get\_\-id\_\-fault}}
-\index{get\_\-id\_\-fault@{get\_\-id\_\-fault}!Fault@{Fault}}
-\subsubsection[{get\_\-id\_\-fault}]{\setlength{\rightskip}{0pt plus 5cm}QString Fault::get\_\-id\_\-fault (
+\hypertarget{classFault_a14cf17c529e7b3a32ab83f7a65508cf0}{
+\index{Fault@{Fault}!add\_\-obs\_\-var@{add\_\-obs\_\-var}}
+\index{add\_\-obs\_\-var@{add\_\-obs\_\-var}!Fault@{Fault}}
+\subsubsection[{add\_\-obs\_\-var}]{\setlength{\rightskip}{0pt plus 5cm}void Fault::add\_\-obs\_\-var (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{ obs\_\-var}
+\end{DoxyParamCaption}
+)}}
+\label{classFault_a14cf17c529e7b3a32ab83f7a65508cf0}
+
+
+Permet d'ajouter une variable à observer à la faute. 
+
+\begin{DoxyReturn}{Renvoie}
+obs\_\-vars 
+\end{DoxyReturn}
+\hypertarget{classFault_a372273140214ea42e90af11bfc2638a1}{
+\index{Fault@{Fault}!get\_\-fault\_\-file\_\-path@{get\_\-fault\_\-file\_\-path}}
+\index{get\_\-fault\_\-file\_\-path@{get\_\-fault\_\-file\_\-path}!Fault@{Fault}}
+\subsubsection[{get\_\-fault\_\-file\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}const QString \& Fault::get\_\-fault\_\-file\_\-path (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}
-\label{classFault_a00cbe6276e5332ed8ec8f878e0a66731}
+\label{classFault_a372273140214ea42e90af11bfc2638a1}
 
 
-return id\_\-fault 
+Getteur pour fault\_\-file\_\-path. 
 
-Methode qui renvoie id\_\-fault
+\begin{DoxyReturn}{Renvoie}
+fault\_\-file\_\-path 
+\end{DoxyReturn}
+\hypertarget{classFault_a1a5feabdd47460e5f9613440151a0617}{
+\index{Fault@{Fault}!get\_\-id\_\-fault@{get\_\-id\_\-fault}}
+\index{get\_\-id\_\-fault@{get\_\-id\_\-fault}!Fault@{Fault}}
+\subsubsection[{get\_\-id\_\-fault}]{\setlength{\rightskip}{0pt plus 5cm}const QString \& Fault::get\_\-id\_\-fault (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classFault_a1a5feabdd47460e5f9613440151a0617}
+
+
+Getteur id\_\-fault. 
 
 \begin{DoxyReturn}{Renvoie}
 QStringList id\_\-fault 
 \end{DoxyReturn}
-\hypertarget{classFault_ac95f44eecf0fc1df45155571f6537a67}{
+\hypertarget{classFault_ae3b9cb296c0c03eeddc621ef318c4ce5}{
 \index{Fault@{Fault}!get\_\-id\_\-target@{get\_\-id\_\-target}}
 \index{get\_\-id\_\-target@{get\_\-id\_\-target}!Fault@{Fault}}
-\subsubsection[{get\_\-id\_\-target}]{\setlength{\rightskip}{0pt plus 5cm}QString Fault::get\_\-id\_\-target (
+\subsubsection[{get\_\-id\_\-target}]{\setlength{\rightskip}{0pt plus 5cm}const QString \& Fault::get\_\-id\_\-target (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}
-\label{classFault_ac95f44eecf0fc1df45155571f6537a67}
+\label{classFault_ae3b9cb296c0c03eeddc621ef318c4ce5}
 
 
-return id\_\-target 
-
-Methode qui renvoie id\_\-target
+Getteur pour id\_\-target. 
 
 \begin{DoxyReturn}{Renvoie}
-QStringList id\_\-target 
+id\_\-target 
 \end{DoxyReturn}
-\hypertarget{classFault_adfb3adf4ffb686acf6e093b8bebffb53}{
-\index{Fault@{Fault}!get\_\-lengths@{get\_\-lengths}}
-\index{get\_\-lengths@{get\_\-lengths}!Fault@{Fault}}
-\subsubsection[{get\_\-lengths}]{\setlength{\rightskip}{0pt plus 5cm}int $\ast$ Fault::get\_\-lengths (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}
-\label{classFault_adfb3adf4ffb686acf6e093b8bebffb53}
-
-
-return lengths 
-
-Methode qui renvoie lengths
-
-\begin{DoxyReturn}{Renvoie}
-lengths 
-\end{DoxyReturn}
-\hypertarget{classFault_aad30675391b9f05cf15857dcbc8ab721}{
+\hypertarget{classFault_aefee6c635192a72db5da4791a497d142}{
 \index{Fault@{Fault}!get\_\-obs\_\-vars@{get\_\-obs\_\-vars}}
 \index{get\_\-obs\_\-vars@{get\_\-obs\_\-vars}!Fault@{Fault}}
-\subsubsection[{get\_\-obs\_\-vars}]{\setlength{\rightskip}{0pt plus 5cm}QStringList Fault::get\_\-obs\_\-vars (
+\subsubsection[{get\_\-obs\_\-vars}]{\setlength{\rightskip}{0pt plus 5cm}const QStringList \& Fault::get\_\-obs\_\-vars (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}
-\label{classFault_aad30675391b9f05cf15857dcbc8ab721}
+\label{classFault_aefee6c635192a72db5da4791a497d142}
 
 
-return obs\_\-vars 
-
-Methode qui renvoie obs\_\-vars
+Getteur pour obs\_\-vars. 
 
 \begin{DoxyReturn}{Renvoie}
-QStringList obs\_\-vars 
+obs\_\-vars 
+\end{DoxyReturn}
+\hypertarget{classFault_a9092f9cf1b5845ea34b0036d548701e4}{
+\index{Fault@{Fault}!get\_\-pok\_\-appli\_\-path@{get\_\-pok\_\-appli\_\-path}}
+\index{get\_\-pok\_\-appli\_\-path@{get\_\-pok\_\-appli\_\-path}!Fault@{Fault}}
+\subsubsection[{get\_\-pok\_\-appli\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}const QString \& Fault::get\_\-pok\_\-appli\_\-path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classFault_a9092f9cf1b5845ea34b0036d548701e4}
+
+
+Getteur pour pok\_\-appli\_\-path. 
+
+\begin{DoxyReturn}{Renvoie}
+pok\_\-appli\_\-path 
 \end{DoxyReturn}
 
 

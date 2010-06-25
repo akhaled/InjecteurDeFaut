@@ -64,15 +64,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00015"></a>00015 <span class="keyword">public</span>:
 <a name="l00016"></a>00016   <a class="code" href="classObserver.html#a19c43f80a38a332a6f694783df3c9835" title="Constructeur.">Observer</a>();
 <a name="l00017"></a>00017   <a class="code" href="classObserver.html#a450645e61c136826f09940a1334c7f34" title="Destructeur.">~Observer</a>();
-<a name="l00018"></a>00018   <span class="keywordtype">bool</span> <a class="code" href="classObserver.html#ad1d517ca2d4eaca45cc4c3826224bdf0" title="connection à QEMU">connect_to_qemu</a>();
-<a name="l00019"></a>00019   <span class="keywordtype">void</span> <a class="code" href="classObserver.html#af087ba1fc5058af1085cc19dd592dae7" title="disconnection à QEMU">disconnect_from_qemu</a>();
-<a name="l00020"></a>00020   <span class="keywordtype">void</span> <a class="code" href="classObserver.html#a2429a0ceee3eda2e1a51e8696b0063de" title="creer un fichier de ram">ram_to_file</a>(<span class="keyword">const</span> QString&amp; file_path);
+<a name="l00018"></a>00018   <span class="keywordtype">bool</span> <a class="code" href="classObserver.html#ad1d517ca2d4eaca45cc4c3826224bdf0" title="Connection à QEMU.">connect_to_qemu</a>();
+<a name="l00019"></a>00019   <span class="keywordtype">void</span> <a class="code" href="classObserver.html#af087ba1fc5058af1085cc19dd592dae7" title="Disconnection à QEMU.">disconnect_from_qemu</a>();
+<a name="l00020"></a>00020   <span class="keywordtype">void</span> <a class="code" href="classObserver.html#a2429a0ceee3eda2e1a51e8696b0063de" title="Creer un fichier de ram.">ram_to_file</a>(<span class="keyword">const</span> QString&amp; file_path);
 <a name="l00021"></a>00021   QByteArray* get_ram();
 <a name="l00022"></a>00022   <span class="keyword">const</span> QString&amp; get_socket_path();
-<a name="l00023"></a>00023   <span class="keywordtype">void</span> <a class="code" href="classObserver.html#a7b1079c5a865ee2eb9f6e24a035be5c2" title="arrêter QEMU">exit_qemu</a>();
-<a name="l00024"></a>00024 };
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="preprocessor">#endif</span>
+<a name="l00023"></a>00023   <span class="keywordtype">void</span> <a class="code" href="classObserver.html#a7b1079c5a865ee2eb9f6e24a035be5c2" title="Arrêter QEMU.">exit_qemu</a>();
+<a name="l00024"></a>00024   QLocalSocket::LocalSocketState get_state();
+<a name="l00025"></a>00025 };
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -89,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Thu Jun 17 2010 16:22:40 pour pok_fault_injector par&nbsp;
+<hr class="footer"/><address class="footer"><small>Généré le Fri Jun 25 2010 18:56:13 pour pok_fault_injector par&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.0 </small></address>
 </body>

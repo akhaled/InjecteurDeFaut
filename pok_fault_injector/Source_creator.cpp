@@ -27,14 +27,11 @@ Source_creator::Source_creator(QString config_file_path){
 
    pok_path = in.readLine();
    ocarina_path = in.readLine();
-   //pok_appli_path = in.readLine();
-   //injector_code_path_file_name = pok_appli_path + "/send.c";
-   //observer_code_path_file_name = pok_appli_path + "/receive.c";
    fichier.close();
 }
 
 /*!
-* \brief creer les fichiers C
+* \brief Creer les fichiers C
 *
 * Creer les fichiers C du code injecteur de fautes et de l'observateur
 *
@@ -50,18 +47,6 @@ bool Source_creator::create_C_file(Fault* fault){
     }
   code_inj = Source_creator::concatenate("#DEBUT FICHIER# ", "#FIN FICHIER# ");
   fichier.close();
-    
-    
-   
-    /*fichier.setFileName(config);
-    if(!fichier.open(QIODevice::ReadOnly))
-    {
-        message = "Impossible d'ouvrir le fichier " + fichier.fileName();
-        cout << message.toStdString()<< endl;
-        exit(0);
-    }
-    code_obs = Source_creator::concatenate("#DEBUT OBSERVER#", "#FIN OBSERVER#");
-    fichier.close();*/
    
   fichier.setFileName(pok_appli_path + "/temp.txt");
     if(!fichier.open(QIODevice::WriteOnly | QIODevice::Text)){
@@ -75,33 +60,19 @@ bool Source_creator::create_C_file(Fault* fault){
          return false;
     }
     QTextStream in_int(&fichier);
-    //cout << "path_appli_path= " + pok_appli_path.toStdString()<< endl;
     
     while (!in_int.atEnd())
           {
            path_temp = in_int.readLine();
-           //cout << "path_temp= " + path_temp.toStdString()<< endl; 
            file.setFileName(path_temp);
            QString s = "/";
            int ix = path_temp.lastIndexOf(s); 
-           //cout << "ix = " + ix<< endl;
            int size = path_temp.size();
-           //cout << "size = " + size<< endl;
            path_temp = path_temp.right(size-ix);
-           //cout << "path_temp_con= " + path_temp.toStdString()<< endl;
            file.copy(pok_appli_path + path_temp);
           }
     fichier.remove();
 
-    /*fichier.setFileName(observer_code_path_file_name);
-    if(!fichier.open(QIODevice::WriteOnly | QIODevice::Text)){
-        message = "Impossible d'ouvrir le fichier " + fichier.fileName();
-        cout << message.toStdString()<< endl;
-        exit(0);
-    }
-   destination.setDevice(& fichier);
-   destination << code_obs;
-   fichier.close();*/
     return true;
 }
 
@@ -116,26 +87,8 @@ bool Source_creator::generate_pok_code(){
 
     //mise en place des variables d'environnement
 
-  //    QString env1 = "POK_PATH=" + pok_path;
-  //    QString env2 = "PATH=" + ocarina_path + ":" + getenv("PATH");
-
     QString chemin = pok_appli_path;
-    //QProcess process;
-    //cout << env1.toStdString()<< endl;
-    //process.start("export POK_PATH=/cal/nfs3/mspcasi/ngougo/Documents/pok-20100317");
-    //process.waitForFinished();
 
-    //cout << env2.toStdString()<< endl;
-    //process.start("export PATH=/cal/nfs3/mspcasi/ngougo/Documents/ocarina-2.0w-suite-x86-linux-20100610/bin:$PATH");
-   // process.waitForFinished();
-
-    /*
-    putenv(env1.toAscii().data());
-    putenv(env2.toAscii().data());
-
-    cout << getenv("PATH") << endl
-         << getenv("POK_PATH") << endl;
-    */
     QProcess process1;
     
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
@@ -160,7 +113,7 @@ bool Source_creator::generate_pok_code(){
 }
 
 /*!
-* \brief recuperer le code
+* \brief Recuperer le code
 *
 * Recuperer le code entre les tags
 *

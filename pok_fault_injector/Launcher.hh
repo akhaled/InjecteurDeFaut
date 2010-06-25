@@ -15,7 +15,7 @@ private:
   Log_creator* log_creator;
   QProcess qemu_process;//!<le processus du lancement de QEMU
   Observer* observer;
-  int obs_loops_nb;//!
+  int obs_loops_nb;
 
 
 public:

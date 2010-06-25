@@ -27,9 +27,9 @@ Injector::Injector(Log_creator *Log, const QString & config_file, const QString 
 }
 
 /*!
-*  \brief preparation de l'environnement
+*  \brief Preparation de l'environnement
 *
-*  verification de l'existence des fichiers nécessaires 
+*  Verification de l'existence des fichiers nécessaires 
 *  au fonctionnement de POK
 *
 *  \param & config_file : le chemin absolue vers le fichier de configuration 
@@ -91,9 +91,9 @@ void Injector::initialize_environment(const QString & config_file, const QString
 }
 
 /*!
-*  \brief preparation de l'environnement
+*  \brief Preparation de l'environnement
 *
-*  creation liste de fautes
+*  Creation liste de fautes
 *
 *  \param & config_file : le chemin absolue vers le fichier de configuration
 *  \param & file_entry : fichier passé en entrée
@@ -127,9 +127,9 @@ void Injector::initialize_fault_list(const QString & file_entry){
 }
 
 /*!
-*  \brief injection de la faute et generation du code POK
+*  \brief Injection de la faute et generation du code POK
 *
-*  verifier l'existence du fichier .fault correspondant à la faute en cours
+*  Verifier l'existence du fichier .fault correspondant à la faute en cours
 *
 *  \param id_fault : identificateur du type de faute
 *  \param id_target : identificateur de la cible de la faute
@@ -144,7 +144,7 @@ bool Injector::fault_file_is_valid(QString id_fault, QString id_target){
 
 
 /*!
-*  \brief injection de la faute et generation du code POK
+*  \brief Injection de la faute et generation du code POK
 *
 *  Recuperation de la première faute dans la liste de fautes, copie des fichiers C correspondant dans le repertoire cible, generation du code POK 
 *

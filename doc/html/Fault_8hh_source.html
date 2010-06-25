@@ -55,24 +55,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00006"></a>00006 
 <a name="l00007"></a><a class="code" href="classFault.html">00007</a> <span class="keyword">class </span><a class="code" href="classFault.html">Fault</a>{
 <a name="l00008"></a>00008 
-<a name="l00009"></a>00009         <span class="keyword">public</span>:
-<a name="l00010"></a>00010         <a class="code" href="classFault.html#afa721f3f73d123711fd6fdf0c88de148" title="Constructeur.">Fault</a>(QString id_fault, QString id_target);
-<a name="l00011"></a>00011         QStringList <a class="code" href="classFault.html#aad30675391b9f05cf15857dcbc8ab721" title="return obs_vars">get_obs_vars</a>();
-<a name="l00012"></a>00012         QString <a class="code" href="classFault.html#a00cbe6276e5332ed8ec8f878e0a66731" title="return id_fault">get_id_fault</a>();
-<a name="l00013"></a>00013         QString <a class="code" href="classFault.html#ac95f44eecf0fc1df45155571f6537a67" title="return id_target">get_id_target</a>();
-<a name="l00014"></a>00014         <span class="keywordtype">int</span> *<a class="code" href="classFault.html#adfb3adf4ffb686acf6e093b8bebffb53" title="return lengths">get_lengths</a>();
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016         <span class="keyword">private</span>:
-<a name="l00017"></a>00017         QString id_target;
-<a name="l00018"></a>00018         QString id_fault;
-<a name="l00019"></a>00019         QStringList obs_vars;
-<a name="l00020"></a>00020         <span class="keywordtype">int</span> lengths[];
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 };
-<a name="l00024"></a>00024 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">private</span>:
+<a name="l00011"></a>00011   QString id_target;
+<a name="l00012"></a>00012   QString id_fault;
+<a name="l00013"></a>00013   QStringList obs_vars;
+<a name="l00014"></a>00014   QString pok_appli_path;
+<a name="l00015"></a>00015   QString fault_file_path;
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="keyword">public</span>:
+<a name="l00018"></a>00018   <a class="code" href="classFault.html#a57b3289565045a3fa12021493dc59004" title="Constructeur.">Fault</a>(QString id_fault, QString id_target, QString pok_appli_path);
+<a name="l00019"></a>00019   <span class="keywordtype">void</span> <a class="code" href="classFault.html#a14cf17c529e7b3a32ab83f7a65508cf0" title="Permet d&amp;#39;ajouter une variable à observer à la faute.">add_obs_var</a>(<span class="keyword">const</span> QString&amp; var);
+<a name="l00020"></a>00020   <span class="keyword">const</span> QStringList&amp; <a class="code" href="classFault.html#aefee6c635192a72db5da4791a497d142" title="Getteur pour obs_vars.">get_obs_vars</a>();
+<a name="l00021"></a>00021   <span class="keyword">const</span> QString&amp; <a class="code" href="classFault.html#a1a5feabdd47460e5f9613440151a0617" title="Getteur id_fault.">get_id_fault</a>();
+<a name="l00022"></a>00022   <span class="keyword">const</span> QString&amp; <a class="code" href="classFault.html#ae3b9cb296c0c03eeddc621ef318c4ce5" title="Getteur pour id_target.">get_id_target</a>();
+<a name="l00023"></a>00023   <span class="keyword">const</span> QString&amp; <a class="code" href="classFault.html#a9092f9cf1b5845ea34b0036d548701e4" title="Getteur pour pok_appli_path.">get_pok_appli_path</a>();
+<a name="l00024"></a>00024   <span class="keyword">const</span> QString&amp; <a class="code" href="classFault.html#a372273140214ea42e90af11bfc2638a1" title="Getteur pour fault_file_path.">get_fault_file_path</a>();
 <a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="preprocessor">#endif</span>
+<a name="l00026"></a>00026 };
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -89,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Thu Jun 17 2010 16:22:40 pour pok_fault_injector par&nbsp;
+<hr class="footer"/><address class="footer"><small>Généré le Fri Jun 25 2010 18:56:13 pour pok_fault_injector par&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.0 </small></address>
 </body>

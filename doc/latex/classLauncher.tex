@@ -5,36 +5,36 @@
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classLauncher_ae4326673c70640ebc88ea697f624d567}{Launcher} (\hyperlink{classLog__creator}{Log\_\-creator} $\ast$log, const QString \&pok\_\-app\_\-path, int loop\_\-nb=1)
+\hyperlink{classLauncher_accbe8ddda09f337abde5fd3e85fe9532}{Launcher} (\hyperlink{classLog__creator}{Log\_\-creator} $\ast$log, const QString \&pok\_\-path, int loop\_\-nb=5)
 \begin{DoxyCompactList}\small\item\em Constructeur. \item\end{DoxyCompactList}\item 
 \hypertarget{classLauncher_a7fb35def86a53bb0dce1267fe2adf019}{
 \hyperlink{classLauncher_a7fb35def86a53bb0dce1267fe2adf019}{$\sim$Launcher} ()}
 \label{classLauncher_a7fb35def86a53bb0dce1267fe2adf019}
 
 \begin{DoxyCompactList}\small\item\em Destructeur. \item\end{DoxyCompactList}\item 
-bool \hyperlink{classLauncher_aa32824612c6a58b3e38235f759b8c9ea}{run\_\-qemu} ()
-\begin{DoxyCompactList}\small\item\em lancer QEMU \item\end{DoxyCompactList}\item 
+bool \hyperlink{classLauncher_abd99511c45d8633f2fc7211ba467e2dc}{run\_\-qemu} (const QString \&pok\_\-appli\_\-path)
+\begin{DoxyCompactList}\small\item\em Lancer QEMU. \item\end{DoxyCompactList}\item 
 \hypertarget{classLauncher_aef18c1ef86b51595e9b71dbc45fd796e}{
 void \hyperlink{classLauncher_aef18c1ef86b51595e9b71dbc45fd796e}{exit\_\-qemu} ()}
 \label{classLauncher_aef18c1ef86b51595e9b71dbc45fd796e}
 
-\begin{DoxyCompactList}\small\item\em arrêter QEMU \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Arrêter QEMU. \item\end{DoxyCompactList}\item 
 void \hyperlink{classLauncher_a0d057d62987a21971eaa9e49856e2327}{start\_\-observation} (\hyperlink{classFault}{Fault} $\ast$fault)
-\begin{DoxyCompactList}\small\item\em commencer l'observation \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Commencer l'observation. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentation des constructeurs et destructeur}
-\hypertarget{classLauncher_ae4326673c70640ebc88ea697f624d567}{
+\hypertarget{classLauncher_accbe8ddda09f337abde5fd3e85fe9532}{
 \index{Launcher@{Launcher}!Launcher@{Launcher}}
 \index{Launcher@{Launcher}!Launcher@{Launcher}}
 \subsubsection[{Launcher}]{\setlength{\rightskip}{0pt plus 5cm}Launcher::Launcher (
 \begin{DoxyParamCaption}
 \item[{{\bf Log\_\-creator} $\ast$}]{ log, }
-\item[{const QString \&}]{ pok\_\-ap\_\-path, }
-\item[{int}]{ loop\_\-nb = {\ttfamily 1}}
+\item[{const QString \&}]{ pok\_\-path, }
+\item[{int}]{ loop\_\-nb = {\ttfamily 5}}
 \end{DoxyParamCaption}
 )}}
-\label{classLauncher_ae4326673c70640ebc88ea697f624d567}
+\label{classLauncher_accbe8ddda09f337abde5fd3e85fe9532}
 
 
 Constructeur. 
@@ -43,22 +43,22 @@ Constructeur de la classe \hyperlink{classLauncher}{Launcher}
 
 
 \begin{DoxyParams}{Paramètres}
-\item[{\em $\ast$Log}]: \item[{\em \&pok\_\-ap\_\-path,:}]\item[{\em loop\_\-nb}]: \item[{\em pok\_\-appli\_\-path}]: \item[{\em obs\_\-loops\_\-nb}]: \end{DoxyParams}
+\item[{\em log}]: Le log\_\-creator chargé de l'écriture du rapport \item[{\em pok\_\-path}]: Chemin vers le répertoire du code source de pok \item[{\em loop\_\-nb}]: Nombre de fois où l'on récupère la ram \end{DoxyParams}
 
 
 \subsection{Documentation des fonctions membres}
-\hypertarget{classLauncher_aa32824612c6a58b3e38235f759b8c9ea}{
+\hypertarget{classLauncher_abd99511c45d8633f2fc7211ba467e2dc}{
 \index{Launcher@{Launcher}!run\_\-qemu@{run\_\-qemu}}
 \index{run\_\-qemu@{run\_\-qemu}!Launcher@{Launcher}}
 \subsubsection[{run\_\-qemu}]{\setlength{\rightskip}{0pt plus 5cm}bool Launcher::run\_\-qemu (
 \begin{DoxyParamCaption}
-{}
+\item[{const QString \&}]{ pok\_\-appli\_\-path}
 \end{DoxyParamCaption}
 )}}
-\label{classLauncher_aa32824612c6a58b3e38235f759b8c9ea}
+\label{classLauncher_abd99511c45d8633f2fc7211ba467e2dc}
 
 
-lancer QEMU 
+Lancer QEMU. 
 
 Methode qui lance QEMU
 
@@ -76,7 +76,7 @@ TRUE si QEMU est lancé, sinon retoune FALSE
 \label{classLauncher_a0d057d62987a21971eaa9e49856e2327}
 
 
-commencer l'observation 
+Commencer l'observation. 
 
 Methode qui lance QEMU et la phase d’observation
 

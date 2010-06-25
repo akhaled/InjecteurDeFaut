@@ -57,9 +57,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00008"></a><a class="code" href="classFault__factory.html">00008</a> <span class="keyword">class </span><a class="code" href="classFault__factory.html">Fault_factory</a>{
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010         <span class="keyword">public</span>:
-<a name="l00011"></a>00011         <a class="code" href="classFault__factory.html">Fault_factory</a>();
-<a name="l00012"></a>00012         <span class="keywordtype">void</span> <a class="code" href="classFault__factory.html#ac896df814cedccb228e757a44efc7a8a" title="Constructeur.">add_fault</a>(QString id_fault, QString id_target);
-<a name="l00013"></a>00013         <a class="code" href="classFault.html">Fault</a>* <a class="code" href="classFault__factory.html#a58a48bac9b2395b916200542a3ca12f4" title="return next fault">next_fault</a>();
+<a name="l00011"></a>00011         <a class="code" href="classFault__factory.html#ab96f36b45d21202401e7bca2bf2d1a9b" title="Constructeur.">Fault_factory</a>();
+<a name="l00012"></a>00012         <span class="keywordtype">void</span> <a class="code" href="classFault__factory.html#a60775c5a18ba940e6b62ba71deb09964" title="Instancie une faute et l&amp;#39;ajoute a la liste de faute.">add_fault</a>(QString id_fault, QString id_target, QString pok_path);
+<a name="l00013"></a>00013         <a class="code" href="classFault.html">Fault</a>* <a class="code" href="classFault__factory.html#a58a48bac9b2395b916200542a3ca12f4" title="Return next fault.">next_fault</a>();
 <a name="l00014"></a>00014 
 <a name="l00015"></a>00015         <span class="keyword">private</span>:
 <a name="l00016"></a>00016         QList&lt;Fault *&gt;  faults;
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Thu Jun 17 2010 16:22:40 pour pok_fault_injector par&nbsp;
+<hr class="footer"/><address class="footer"><small>Généré le Fri Jun 25 2010 18:56:13 pour pok_fault_injector par&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.0 </small></address>
 </body>

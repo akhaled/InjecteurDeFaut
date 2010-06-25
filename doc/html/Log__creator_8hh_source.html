@@ -58,20 +58,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00009"></a><a class="code" href="classLog__creator.html">00009</a> <span class="keyword">class </span><a class="code" href="classLog__creator.html">Log_creator</a>
 <a name="l00010"></a>00010 {
 <a name="l00011"></a>00011 <span class="keyword">private</span>:
-<a name="l00012"></a>00012   <a class="code" href="classFault.html">Fault</a>* fault;
-<a name="l00013"></a>00013   QByteArray tag;
-<a name="l00014"></a>00014   QFile log_file;
-<a name="l00015"></a>00015   QList&lt;qint64&gt; values;
-<a name="l00016"></a>00016   
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <span class="keyword">public</span>:
-<a name="l00019"></a>00019   <a class="code" href="classLog__creator.html#a9b41865df79c41c8924597575919eb10" title="Constructeur.">Log_creator</a>(<span class="keyword">const</span> QString&amp; path_to_journal);
-<a name="l00020"></a>00020   <a class="code" href="classLog__creator.html#af63167b0de7f559c4c67430662ae2b45" title="Destructeur.">~Log_creator</a>();
-<a name="l00021"></a>00021   <span class="keywordtype">bool</span> <a class="code" href="classLog__creator.html#a452a9ccc31cb82783cd70cc6a8e6b68f" title="cherche dans ram les variables">parse_ram</a>(<span class="keyword">const</span> QString&amp; file_path);
-<a name="l00022"></a>00022   <span class="keywordtype">void</span> <a class="code" href="classLog__creator.html#acc9b8ccb299f9733b4065b61c297b6e0" title="écrit les paramètres dans le rapport.">write_obs_vars</a>();
-<a name="l00023"></a>00023   <span class="keywordtype">void</span> <a class="code" href="classLog__creator.html#a6bbc059eb7b6825439f31f00d182f8b1" title="écrit les messages des erreurs dans le rapport.">write_error</a>(<span class="keyword">const</span> QString&amp; error_message);
-<a name="l00024"></a>00024   <span class="keywordtype">void</span> <a class="code" href="classLog__creator.html#a347fe83a5cd3535f5065649a16bd9ab6" title="écrit les messages dans le rapport.">write_message</a>(<span class="keyword">const</span> QString&amp; message);
-<a name="l00025"></a>00025   <span class="keywordtype">void</span> <a class="code" href="classLog__creator.html#ae12b4c588f3c5d69182e9c0433f23376" title="mise à jour de fault">set_fault</a>(<a class="code" href="classFault.html">Fault</a>* f);
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013   <a class="code" href="classFault.html">Fault</a>* fault;
+<a name="l00014"></a>00014   QByteArray begin_tag;
+<a name="l00015"></a>00015   QByteArray end_tag;
+<a name="l00016"></a>00016   QFile log_file;
+<a name="l00017"></a>00017   <span class="keywordtype">char</span> sep;
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">public</span>:
+<a name="l00020"></a>00020   <a class="code" href="classLog__creator.html#a9b41865df79c41c8924597575919eb10" title="Constructeur.">Log_creator</a>(<span class="keyword">const</span> QString&amp; path_to_journal);
+<a name="l00021"></a>00021   <a class="code" href="classLog__creator.html#af63167b0de7f559c4c67430662ae2b45" title="Destructeur.">~Log_creator</a>();
+<a name="l00022"></a>00022   <span class="keywordtype">bool</span> <a class="code" href="classLog__creator.html#a452a9ccc31cb82783cd70cc6a8e6b68f" title="Cherche dans ram les variables.">parse_ram</a>(<span class="keyword">const</span> QString&amp; file_path);
+<a name="l00023"></a>00023   <span class="keywordtype">void</span> <a class="code" href="classLog__creator.html#a6bbc059eb7b6825439f31f00d182f8b1" title="Ecrire les messages des erreurs dans le rapport.">write_error</a>(<span class="keyword">const</span> QString&amp; error_message);
+<a name="l00024"></a>00024   <span class="keywordtype">void</span> <a class="code" href="classLog__creator.html#a347fe83a5cd3535f5065649a16bd9ab6" title="Ecrire les messages dans le rapport.">write_message</a>(<span class="keyword">const</span> QString&amp; message);
+<a name="l00025"></a>00025   <span class="keywordtype">void</span> <a class="code" href="classLog__creator.html#ae12b4c588f3c5d69182e9c0433f23376" title="Mise à jour de fault.">set_fault</a>(<a class="code" href="classFault.html">Fault</a>* f);
 <a name="l00026"></a>00026 };
 <a name="l00027"></a>00027 
 <a name="l00028"></a>00028 <span class="preprocessor">#endif</span>
@@ -91,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Thu Jun 17 2010 16:22:40 pour pok_fault_injector par&nbsp;
+<hr class="footer"/><address class="footer"><small>Généré le Fri Jun 25 2010 18:56:13 pour pok_fault_injector par&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.0 </small></address>
 </body>

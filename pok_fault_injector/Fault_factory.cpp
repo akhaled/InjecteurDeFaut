@@ -3,14 +3,15 @@
 
 #include "Fault_factory.hh"
 
+/*!
+*  \brief Constructeur
+*/
 Fault_factory::Fault_factory(){
 
 }
 
 /*!
-*  \brief Constructeur
-*
-*  Instancie une faute et l'ajoute à la liste de faute
+*  \brief Instancie une faute et l'ajoute a la liste de faute
 *
 *  \param id_fault : identificateur du type de faute
 *  \param id_target : identificateur de la cible de la faute
@@ -45,7 +46,7 @@ void Fault_factory::add_fault(QString id_fault, QString id_target, QString pok_p
 }
 
 /*!
-*  \brief return next fault
+*  \brief Return next fault
 *
 *  Methode qui retourne le premier element de la liste et le supprime de la liste
 *

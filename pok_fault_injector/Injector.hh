@@ -24,8 +24,8 @@ public:
 
 private:
   QString pok_path;
-  QFile fichier_config;//!<
-  QFile fichier_entre;//!<
+  QFile fichier_config;
+  QFile fichier_entre;
   QString msg;//!<messages affichés pendant la processus
   Fault *current_fault;//!<la faute à injecter
   Log_creator *error_handler;//!<pour la création du rapport de la campagne de test et des messages d’erreurs

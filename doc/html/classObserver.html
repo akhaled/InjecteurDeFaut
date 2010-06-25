@@ -63,17 +63,19 @@ Fonctions membres publiques</h2></td></tr>
 &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObserver.html#a450645e61c136826f09940a1334c7f34">~Observer</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructeur. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObserver.html#ad1d517ca2d4eaca45cc4c3826224bdf0">connect_to_qemu</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">connection à QEMU  <a href="#ad1d517ca2d4eaca45cc4c3826224bdf0"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Connection à QEMU.  <a href="#ad1d517ca2d4eaca45cc4c3826224bdf0"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObserver.html#af087ba1fc5058af1085cc19dd592dae7">disconnect_from_qemu</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">disconnection à QEMU  <a href="#af087ba1fc5058af1085cc19dd592dae7"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Disconnection à QEMU.  <a href="#af087ba1fc5058af1085cc19dd592dae7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObserver.html#a2429a0ceee3eda2e1a51e8696b0063de">ram_to_file</a> (const QString &amp;file_path)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">creer un fichier de ram  <a href="#a2429a0ceee3eda2e1a51e8696b0063de"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creer un fichier de ram.  <a href="#a2429a0ceee3eda2e1a51e8696b0063de"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94ce174d2c4992ed3145f37f45bf5799"></a><!-- doxytag: member="Observer::get_ram" ref="a94ce174d2c4992ed3145f37f45bf5799" args="()" -->
 QByteArray *&nbsp;</td><td class="memItemRight" valign="bottom"><b>get_ram</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad85dbdf75e3a014caa5b03c32b2f53ef"></a><!-- doxytag: member="Observer::get_socket_path" ref="ad85dbdf75e3a014caa5b03c32b2f53ef" args="()" -->
 const QString &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><b>get_socket_path</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObserver.html#a7b1079c5a865ee2eb9f6e24a035be5c2">exit_qemu</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">arrêter QEMU  <a href="#a7b1079c5a865ee2eb9f6e24a035be5c2"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Arrêter QEMU.  <a href="#a7b1079c5a865ee2eb9f6e24a035be5c2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad98889bd16dec614c73501ef1d6ff373"></a><!-- doxytag: member="Observer::get_state" ref="ad98889bd16dec614c73501ef1d6ff373" args="()" -->
+QLocalSocket::LocalSocketState&nbsp;</td><td class="memItemRight" valign="bottom"><b>get_state</b> ()</td></tr>
 </table>
 <hr/><h2>Documentation des constructeurs et destructeur</h2>
 <a class="anchor" id="a19c43f80a38a332a6f694783df3c9835"></a><!-- doxytag: member="Observer::Observer" ref="a19c43f80a38a332a6f694783df3c9835" args="()" -->
@@ -112,7 +114,7 @@ const QString &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><b>get_so
 </div>
 <div class="memdoc">
 
-<p>connection à QEMU </p>
+<p>Connection à QEMU. </p>
 <p>Methode qui connecte à QEMU via le unix local socket</p>
 <dl class="return"><dt><b>Renvoie:</b></dt><dd>TRUE si QEMU est connecté, sinon retourne FALSE </dd></dl>
 
@@ -133,7 +135,7 @@ const QString &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><b>get_so
 </div>
 <div class="memdoc">
 
-<p>disconnection à QEMU </p>
+<p>Disconnection à QEMU. </p>
 <p>Methode qui disconnecte à QEMU </p>
 
 </div>
@@ -153,7 +155,7 @@ const QString &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><b>get_so
 </div>
 <div class="memdoc">
 
-<p>arrêter QEMU </p>
+<p>Arrêter QEMU. </p>
 <p>Methode qui termine la processus de QEMU </p>
 
 </div>
@@ -174,7 +176,7 @@ const QString &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><b>get_so
 </div>
 <div class="memdoc">
 
-<p>creer un fichier de ram </p>
+<p>Creer un fichier de ram. </p>
 <p>Methode qui copier les ram dans un fichier </p>
 
 </div>
@@ -198,7 +200,7 @@ const QString &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><b>get_so
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Thu Jun 17 2010 16:22:40 pour pok_fault_injector par&nbsp;
+<hr class="footer"/><address class="footer"><small>Généré le Fri Jun 25 2010 18:56:13 pour pok_fault_injector par&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.0 </small></address>
 </body>

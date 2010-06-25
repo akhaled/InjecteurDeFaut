@@ -57,13 +57,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFault__factory.html#ac896df814cedccb228e757a44efc7a8a">add_fault</a> (QString id_fault, QString id_target)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructeur.  <a href="#ac896df814cedccb228e757a44efc7a8a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab96f36b45d21202401e7bca2bf2d1a9b"></a><!-- doxytag: member="Fault_factory::Fault_factory" ref="ab96f36b45d21202401e7bca2bf2d1a9b" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFault__factory.html#ab96f36b45d21202401e7bca2bf2d1a9b">Fault_factory</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructeur. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFault__factory.html#a60775c5a18ba940e6b62ba71deb09964">add_fault</a> (QString id_fault, QString id_target, QString pok_path)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Instancie une faute et l'ajoute a la liste de faute.  <a href="#a60775c5a18ba940e6b62ba71deb09964"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFault.html">Fault</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFault__factory.html#a58a48bac9b2395b916200542a3ca12f4">next_fault</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">return next fault  <a href="#a58a48bac9b2395b916200542a3ca12f4"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return next fault.  <a href="#a58a48bac9b2395b916200542a3ca12f4"></a><br/></td></tr>
 </table>
 <hr/><h2>Documentation des fonctions membres</h2>
-<a class="anchor" id="ac896df814cedccb228e757a44efc7a8a"></a><!-- doxytag: member="Fault_factory::add_fault" ref="ac896df814cedccb228e757a44efc7a8a" args="(QString id_fault, QString id_target)" -->
+<a class="anchor" id="a60775c5a18ba940e6b62ba71deb09964"></a><!-- doxytag: member="Fault_factory::add_fault" ref="a60775c5a18ba940e6b62ba71deb09964" args="(QString id_fault, QString id_target, QString pok_path)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -77,7 +80,13 @@ Fonctions membres publiques</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">QString&nbsp;</td>
-          <td class="paramname"> <em>id_target</em></td><td>&nbsp;</td>
+          <td class="paramname"> <em>id_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&nbsp;</td>
+          <td class="paramname"> <em>pok_path</em></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -88,8 +97,7 @@ Fonctions membres publiques</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Constructeur. </p>
-<p>Constructeur de la classe <a class="el" href="classFault__factory.html">Fault_factory</a>, qui instancie une faute et l'ajoute � la liste de faute</p>
+<p>Instancie une faute et l'ajoute a la liste de faute. </p>
 <dl><dt><b>Paramètres:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>id_fault</em>&nbsp;</td><td>: identificateur du type de faute </td></tr>
@@ -115,8 +123,8 @@ Fonctions membres publiques</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>return next fault </p>
-<p>Methode qui retourne le premier element de la liste et le supprime</p>
+<p>Return next fault. </p>
+<p>Methode qui retourne le premier element de la liste et le supprime de la liste</p>
 <dl class="return"><dt><b>Renvoie:</b></dt><dd>Fault* faults si la liste des fautes n'est pas vide, sinon return NULL. </dd></dl>
 
 </div>
@@ -140,7 +148,7 @@ Fonctions membres publiques</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Thu Jun 17 2010 16:22:40 pour pok_fault_injector par&nbsp;
+<hr class="footer"/><address class="footer"><small>Généré le Fri Jun 25 2010 18:56:13 pour pok_fault_injector par&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.0 </small></address>
 </body>

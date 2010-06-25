@@ -13,11 +13,11 @@
 
 \begin{DoxyCompactList}\small\item\em Destructeur. \item\end{DoxyCompactList}\item 
 bool \hyperlink{classObserver_ad1d517ca2d4eaca45cc4c3826224bdf0}{connect\_\-to\_\-qemu} ()
-\begin{DoxyCompactList}\small\item\em connection à QEMU \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Connection à QEMU. \item\end{DoxyCompactList}\item 
 void \hyperlink{classObserver_af087ba1fc5058af1085cc19dd592dae7}{disconnect\_\-from\_\-qemu} ()
-\begin{DoxyCompactList}\small\item\em disconnection à QEMU \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Disconnection à QEMU. \item\end{DoxyCompactList}\item 
 void \hyperlink{classObserver_a2429a0ceee3eda2e1a51e8696b0063de}{ram\_\-to\_\-file} (const QString \&file\_\-path)
-\begin{DoxyCompactList}\small\item\em creer un fichier de ram \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creer un fichier de ram. \item\end{DoxyCompactList}\item 
 \hypertarget{classObserver_a94ce174d2c4992ed3145f37f45bf5799}{
 QByteArray $\ast$ {\bfseries get\_\-ram} ()}
 \label{classObserver_a94ce174d2c4992ed3145f37f45bf5799}
@@ -29,7 +29,12 @@ const QString \& {\bfseries get\_\-socket\_\-path} ()}
 
 \item 
 void \hyperlink{classObserver_a7b1079c5a865ee2eb9f6e24a035be5c2}{exit\_\-qemu} ()
-\begin{DoxyCompactList}\small\item\em arrêter QEMU \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Arrêter QEMU. \item\end{DoxyCompactList}\item 
+\hypertarget{classObserver_ad98889bd16dec614c73501ef1d6ff373}{
+QLocalSocket::LocalSocketState {\bfseries get\_\-state} ()}
+\label{classObserver_ad98889bd16dec614c73501ef1d6ff373}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Documentation des constructeurs et destructeur}
@@ -60,7 +65,7 @@ Constructeur de la classe \hyperlink{classObserver}{Observer}
 \label{classObserver_ad1d517ca2d4eaca45cc4c3826224bdf0}
 
 
-connection à QEMU 
+Connection à QEMU. 
 
 Methode qui connecte à QEMU via le unix local socket
 
@@ -78,7 +83,7 @@ TRUE si QEMU est connecté, sinon retourne FALSE
 \label{classObserver_af087ba1fc5058af1085cc19dd592dae7}
 
 
-disconnection à QEMU 
+Disconnection à QEMU. 
 
 Methode qui disconnecte à QEMU \hypertarget{classObserver_a7b1079c5a865ee2eb9f6e24a035be5c2}{
 \index{Observer@{Observer}!exit\_\-qemu@{exit\_\-qemu}}
@@ -91,7 +96,7 @@ Methode qui disconnecte à QEMU \hypertarget{classObserver_a7b1079c5a865ee2eb9f6
 \label{classObserver_a7b1079c5a865ee2eb9f6e24a035be5c2}
 
 
-arrêter QEMU 
+Arrêter QEMU. 
 
 Methode qui termine la processus de QEMU \hypertarget{classObserver_a2429a0ceee3eda2e1a51e8696b0063de}{
 \index{Observer@{Observer}!ram\_\-to\_\-file@{ram\_\-to\_\-file}}
@@ -104,7 +109,7 @@ Methode qui termine la processus de QEMU \hypertarget{classObserver_a2429a0ceee3
 \label{classObserver_a2429a0ceee3eda2e1a51e8696b0063de}
 
 
-creer un fichier de ram 
+Creer un fichier de ram. 
 
 Methode qui copier les ram dans un fichier 
 

@@ -41,7 +41,7 @@ Launcher::~Launcher()
 }
 
 /*!
-*  \brief lancer QEMU
+*  \brief Lancer QEMU
 *
 * Methode qui lance QEMU 
 *
@@ -63,7 +63,7 @@ bool Launcher::run_qemu(const QString& pok_appli_path) {
 }
 
 /*!
-*  \brief arrêter QEMU
+*  \brief Arrêter QEMU
 */
 void Launcher::exit_qemu() {
   observer->exit_qemu();
@@ -71,7 +71,7 @@ void Launcher::exit_qemu() {
 }
 
 /*!
-*  \brief commencer l'observation
+*  \brief Commencer l'observation
 *
 * Methode qui lance QEMU et la phase d’observation 
 *

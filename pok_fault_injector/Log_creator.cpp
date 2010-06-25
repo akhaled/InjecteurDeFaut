@@ -41,7 +41,7 @@ Log_creator::~Log_creator() {
 
 
 /*!
-*  \brief cherche dans ram les variables
+*  \brief Cherche dans ram les variables
 *
 *  Methode qui qui cherche dans ram les variables spécifiées dans le fichier .fault
 *  et qui écrits leurs valeurs dans le fichier journal
@@ -127,7 +127,7 @@ bool Log_creator::parse_ram(const QString& file_path){
 
 
 /*!
-*  \brief écrit les messages des erreurs dans le rapport
+*  \brief Ecrire les messages des erreurs dans le rapport
 *
 *  Methode qui écrit les messages des erreur dans le rapport et l’affiche également à l’écran.
 *
@@ -146,7 +146,7 @@ void Log_creator::write_error(const QString& error_message){
 
 
 /*!
-*  \brief écrit les messages dans le rapport
+*  \brief Ecrire les messages dans le rapport
 *
 *  Methode qui écrit les messages dans le rapport et l’affiche également à l’écran.
 *
@@ -168,7 +168,7 @@ void Log_creator::write_message(const QString& message) {
 
 
 /*!
-*  \brief mise à jour de fault
+*  \brief Mise à jour de fault
 *
 *  Methode qui met à jour l’attribut fault
 *

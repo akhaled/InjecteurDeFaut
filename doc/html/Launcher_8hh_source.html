@@ -59,24 +59,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00010"></a><a class="code" href="classLauncher.html">00010</a> <span class="keyword">class </span><a class="code" href="classLauncher.html">Launcher</a>
 <a name="l00011"></a>00011 {
 <a name="l00012"></a>00012 <span class="keyword">private</span>:
-<a name="l00013"></a>00013   <a class="code" href="classLog__creator.html">Log_creator</a>* log_creator;
-<a name="l00014"></a>00014   QString pok_appli_path;
-<a name="l00015"></a>00015   QProcess qemu_process;
-<a name="l00016"></a>00016   <a class="code" href="classObserver.html">Observer</a>* observer;
-<a name="l00017"></a>00017   <span class="keywordtype">int</span> obs_loops_nb;
-<a name="l00018"></a>00018 
+<a name="l00013"></a>00013   QString pok_path;
+<a name="l00014"></a>00014   QString current_path;
+<a name="l00015"></a>00015   <a class="code" href="classLog__creator.html">Log_creator</a>* log_creator;
+<a name="l00016"></a>00016   QProcess qemu_process;
+<a name="l00017"></a>00017   <a class="code" href="classObserver.html">Observer</a>* observer;
+<a name="l00018"></a>00018   <span class="keywordtype">int</span> obs_loops_nb;
 <a name="l00019"></a>00019 
-<a name="l00020"></a>00020 <span class="keyword">public</span>:
-<a name="l00021"></a>00021   <a class="code" href="classLauncher.html#ae4326673c70640ebc88ea697f624d567" title="Constructeur.">Launcher</a>(<a class="code" href="classLog__creator.html">Log_creator</a>* log, <span class="keyword">const</span> QString&amp; pok_app_path, <span class="keywordtype">int</span> loop_nb = 1);
-<a name="l00022"></a>00022   <a class="code" href="classLauncher.html#a7fb35def86a53bb0dce1267fe2adf019" title="Destructeur.">~Launcher</a>();
-<a name="l00023"></a>00023   <span class="keywordtype">bool</span> <a class="code" href="classLauncher.html#aa32824612c6a58b3e38235f759b8c9ea" title="lancer QEMU">run_qemu</a>();
-<a name="l00024"></a>00024   <span class="keywordtype">void</span> <a class="code" href="classLauncher.html#aef18c1ef86b51595e9b71dbc45fd796e" title="arrêter QEMU">exit_qemu</a>();
-<a name="l00025"></a>00025   <span class="comment">// Only meaningfull if we do not start qemu with &quot;make run&quot;</span>
-<a name="l00026"></a>00026   <span class="comment">//  QProcess::ProcessState qemu_state(); </span>
-<a name="l00027"></a>00027   <span class="keywordtype">void</span> <a class="code" href="classLauncher.html#a0d057d62987a21971eaa9e49856e2327" title="commencer l&amp;#39;observation">start_observation</a>(<a class="code" href="classFault.html">Fault</a>* fault);
-<a name="l00028"></a>00028 };
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="preprocessor">#endif</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00022"></a>00022   <a class="code" href="classLauncher.html#accbe8ddda09f337abde5fd3e85fe9532" title="Constructeur.">Launcher</a>(<a class="code" href="classLog__creator.html">Log_creator</a>* log, <span class="keyword">const</span> QString&amp; pok_path, <span class="keywordtype">int</span> loop_nb = 5);
+<a name="l00023"></a>00023   <a class="code" href="classLauncher.html#a7fb35def86a53bb0dce1267fe2adf019" title="Destructeur.">~Launcher</a>();
+<a name="l00024"></a>00024   <span class="keywordtype">bool</span> <a class="code" href="classLauncher.html#abd99511c45d8633f2fc7211ba467e2dc" title="Lancer QEMU.">run_qemu</a>(<span class="keyword">const</span> QString&amp; pok_appli_path);
+<a name="l00025"></a>00025   <span class="keywordtype">void</span> <a class="code" href="classLauncher.html#aef18c1ef86b51595e9b71dbc45fd796e" title="Arrêter QEMU.">exit_qemu</a>();
+<a name="l00026"></a>00026   <span class="comment">// Only meaningfull if we do not start qemu with &quot;make run&quot;</span>
+<a name="l00027"></a>00027   <span class="comment">//  QProcess::ProcessState qemu_state(); </span>
+<a name="l00028"></a>00028   <span class="keywordtype">void</span> <a class="code" href="classLauncher.html#a0d057d62987a21971eaa9e49856e2327" title="Commencer l&amp;#39;observation.">start_observation</a>(<a class="code" href="classFault.html">Fault</a>* fault);
+<a name="l00029"></a>00029 };
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -93,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Thu Jun 17 2010 16:22:40 pour pok_fault_injector par&nbsp;
+<hr class="footer"/><address class="footer"><small>Généré le Fri Jun 25 2010 18:56:13 pour pok_fault_injector par&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.0 </small></address>
 </body>

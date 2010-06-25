@@ -63,37 +63,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00014"></a>00014    <a class="code" href="classSource__creator.html#a4daffe7e8125a0fc1a1887d2943d7931" title="Constructeur.">Source_creator</a>(QString config_file_path);
 <a name="l00015"></a>00015 
 <a name="l00016"></a>00016    <span class="keyword">public</span>:
-<a name="l00017"></a>00017    <span class="keywordtype">void</span> <a class="code" href="classSource__creator.html#ae5958a1e34ac288588ab353fa462349d" title="creer les fichiers C">create_C_file</a>(QString fault_file_path);
+<a name="l00017"></a>00017    <span class="keywordtype">bool</span> <a class="code" href="classSource__creator.html#a447a7cc3a6828404fa592a20fe38e1dd" title="Creer les fichiers C.">create_C_file</a>(<a class="code" href="classFault.html">Fault</a>* fault);
 <a name="l00018"></a>00018    <span class="keywordtype">bool</span> <a class="code" href="classSource__creator.html#a4f9996f453ffc97272b736e8e7f7a3c3" title="Generer code pok.">generate_pok_code</a>();
-<a name="l00019"></a>00019    QString <a class="code" href="classSource__creator.html#af4c03606f98794df555918f3a9fc0183" title="recuperer le code">concatenate</a>(QString str1, QString str2);
-<a name="l00020"></a>00020 
+<a name="l00019"></a>00019    QString <a class="code" href="classSource__creator.html#af4c03606f98794df555918f3a9fc0183" title="Recuperer le code.">concatenate</a>(QString str1, QString str2);
+<a name="l00020"></a>00020    <span class="keyword">const</span> QString &amp; get_pok_path();
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022    <span class="keyword">private</span>:
-<a name="l00023"></a>00023    QString pok_appli_path;
-<a name="l00024"></a>00024    QString pok_path;
-<a name="l00025"></a>00025    QString ocarina_path;
-<a name="l00026"></a>00026    QString injector_code_path_file_name;
-<a name="l00027"></a>00027    QString observer_code_path_file_name;
-<a name="l00028"></a>00028    QString pok_exemple_path;
-<a name="l00029"></a>00029    QString config;
-<a name="l00030"></a>00030    QFile fichier;
-<a name="l00031"></a>00031    QTextStream destination;
-<a name="l00032"></a>00032    QString message;
-<a name="l00033"></a>00033    QString code;
-<a name="l00034"></a>00034    QString code_inj;
-<a name="l00035"></a>00035    QString code_obs;
-<a name="l00036"></a>00036    QString str1;
-<a name="l00037"></a>00037    QString str2;
-<a name="l00038"></a>00038    QString signature;
-<a name="l00039"></a>00039   
-<a name="l00040"></a>00040   
-<a name="l00041"></a>00041 };
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023    <span class="keyword">private</span>:
+<a name="l00024"></a>00024    QString pok_appli_path;
+<a name="l00025"></a>00025    QString pok_path;
+<a name="l00026"></a>00026    QString ocarina_path;
+<a name="l00027"></a>00027    QString injector_code_path_file_name;
+<a name="l00028"></a>00028    QString observer_code_path_file_name;
+<a name="l00029"></a>00029    QString pok_exemple_path;
+<a name="l00030"></a>00030    QString config;
+<a name="l00031"></a>00031    QFile fichier;
+<a name="l00032"></a>00032    QTextStream destination;
+<a name="l00033"></a>00033    QString message;
+<a name="l00034"></a>00034    QString code;
+<a name="l00035"></a>00035    QString code_inj;
+<a name="l00036"></a>00036    QString code_obs;
+<a name="l00037"></a>00037    QString str1;
+<a name="l00038"></a>00038    QString str2;
+<a name="l00039"></a>00039    QString signature;
+<a name="l00040"></a>00040    QFile file;
+<a name="l00041"></a>00041    QString path_temp; 
+<a name="l00042"></a>00042   
+<a name="l00043"></a>00043 };
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045 
 <a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="preprocessor">#endif // SOURCE_CREATOR_H</span>
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="preprocessor">#endif // SOURCE_CREATOR_H</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -110,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Thu Jun 17 2010 16:22:40 pour pok_fault_injector par&nbsp;
+<hr class="footer"/><address class="footer"><small>Généré le Fri Jun 25 2010 18:56:13 pour pok_fault_injector par&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.0 </small></address>
 </body>

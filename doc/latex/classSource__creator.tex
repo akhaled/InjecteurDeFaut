@@ -7,12 +7,17 @@
 \item 
 \hyperlink{classSource__creator_a4daffe7e8125a0fc1a1887d2943d7931}{Source\_\-creator} (QString config\_\-file\_\-path)
 \begin{DoxyCompactList}\small\item\em Constructeur. \item\end{DoxyCompactList}\item 
-void \hyperlink{classSource__creator_ae5958a1e34ac288588ab353fa462349d}{create\_\-C\_\-file} (QString fault\_\-file\_\-path)
-\begin{DoxyCompactList}\small\item\em creer les fichiers C \item\end{DoxyCompactList}\item 
+bool \hyperlink{classSource__creator_a447a7cc3a6828404fa592a20fe38e1dd}{create\_\-C\_\-file} (\hyperlink{classFault}{Fault} $\ast$fault)
+\begin{DoxyCompactList}\small\item\em Creer les fichiers C. \item\end{DoxyCompactList}\item 
 bool \hyperlink{classSource__creator_a4f9996f453ffc97272b736e8e7f7a3c3}{generate\_\-pok\_\-code} ()
 \begin{DoxyCompactList}\small\item\em Generer code pok. \item\end{DoxyCompactList}\item 
 QString \hyperlink{classSource__creator_af4c03606f98794df555918f3a9fc0183}{concatenate} (QString str1, QString str2)
-\begin{DoxyCompactList}\small\item\em recuperer le code \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Recuperer le code. \item\end{DoxyCompactList}\item 
+\hypertarget{classSource__creator_a0e5520c2dc6809fb21903a026308be6a}{
+const QString \& {\bfseries get\_\-pok\_\-path} ()}
+\label{classSource__creator_a0e5520c2dc6809fb21903a026308be6a}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Documentation des constructeurs et destructeur}
@@ -49,7 +54,7 @@ Constructeur de la classe \hyperlink{classSource__creator}{Source\_\-creator}
 \label{classSource__creator_af4c03606f98794df555918f3a9fc0183}
 
 
-recuperer le code 
+Recuperer le code. 
 
 Recuperer le code entre les tags
 
@@ -59,18 +64,18 @@ Recuperer le code entre les tags
 \begin{DoxyReturn}{Renvoie}
 QString code 
 \end{DoxyReturn}
-\hypertarget{classSource__creator_ae5958a1e34ac288588ab353fa462349d}{
+\hypertarget{classSource__creator_a447a7cc3a6828404fa592a20fe38e1dd}{
 \index{Source\_\-creator@{Source\_\-creator}!create\_\-C\_\-file@{create\_\-C\_\-file}}
 \index{create\_\-C\_\-file@{create\_\-C\_\-file}!Source_creator@{Source\_\-creator}}
-\subsubsection[{create\_\-C\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void Source\_\-creator::create\_\-C\_\-file (
+\subsubsection[{create\_\-C\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}bool Source\_\-creator::create\_\-C\_\-file (
 \begin{DoxyParamCaption}
-\item[{QString}]{ fault\_\-file\_\-path}
+\item[{{\bf Fault} $\ast$}]{ fault}
 \end{DoxyParamCaption}
 )}}
-\label{classSource__creator_ae5958a1e34ac288588ab353fa462349d}
+\label{classSource__creator_a447a7cc3a6828404fa592a20fe38e1dd}
 
 
-creer les fichiers C 
+Creer les fichiers C. 
 
 Creer les fichiers C du code injecteur de fautes et de l'observateur
 

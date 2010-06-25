@@ -5,28 +5,32 @@
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{classFault__factory_ac896df814cedccb228e757a44efc7a8a}{add\_\-fault} (QString id\_\-fault, QString id\_\-target)
+\hypertarget{classFault__factory_ab96f36b45d21202401e7bca2bf2d1a9b}{
+\hyperlink{classFault__factory_ab96f36b45d21202401e7bca2bf2d1a9b}{Fault\_\-factory} ()}
+\label{classFault__factory_ab96f36b45d21202401e7bca2bf2d1a9b}
+
 \begin{DoxyCompactList}\small\item\em Constructeur. \item\end{DoxyCompactList}\item 
+void \hyperlink{classFault__factory_a60775c5a18ba940e6b62ba71deb09964}{add\_\-fault} (QString id\_\-fault, QString id\_\-target, QString pok\_\-path)
+\begin{DoxyCompactList}\small\item\em Instancie une faute et l'ajoute a la liste de faute. \item\end{DoxyCompactList}\item 
 \hyperlink{classFault}{Fault} $\ast$ \hyperlink{classFault__factory_a58a48bac9b2395b916200542a3ca12f4}{next\_\-fault} ()
-\begin{DoxyCompactList}\small\item\em return next fault \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Return next fault. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentation des fonctions membres}
-\hypertarget{classFault__factory_ac896df814cedccb228e757a44efc7a8a}{
+\hypertarget{classFault__factory_a60775c5a18ba940e6b62ba71deb09964}{
 \index{Fault\_\-factory@{Fault\_\-factory}!add\_\-fault@{add\_\-fault}}
 \index{add\_\-fault@{add\_\-fault}!Fault_factory@{Fault\_\-factory}}
 \subsubsection[{add\_\-fault}]{\setlength{\rightskip}{0pt plus 5cm}void Fault\_\-factory::add\_\-fault (
 \begin{DoxyParamCaption}
 \item[{QString}]{ id\_\-fault, }
-\item[{QString}]{ id\_\-target}
+\item[{QString}]{ id\_\-target, }
+\item[{QString}]{ pok\_\-path}
 \end{DoxyParamCaption}
 )}}
-\label{classFault__factory_ac896df814cedccb228e757a44efc7a8a}
+\label{classFault__factory_a60775c5a18ba940e6b62ba71deb09964}
 
 
-Constructeur. 
-
-Constructeur de la classe \hyperlink{classFault__factory}{Fault\_\-factory}, qui instancie une faute et l'ajoute ‡ la liste de faute
+Instancie une faute et l'ajoute a la liste de faute. 
 
 
 \begin{DoxyParams}{Param√®tres}
@@ -42,9 +46,9 @@ Constructeur de la classe \hyperlink{classFault__factory}{Fault\_\-factory}, qui
 \label{classFault__factory_a58a48bac9b2395b916200542a3ca12f4}
 
 
-return next fault 
+Return next fault. 
 
-Methode qui retourne le premier element de la liste et le supprime
+Methode qui retourne le premier element de la liste et le supprime de la liste
 
 \begin{DoxyReturn}{Renvoie}
 Fault$\ast$ faults si la liste des fautes n'est pas vide, sinon return NULL. 

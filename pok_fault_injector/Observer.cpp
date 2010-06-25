@@ -36,7 +36,7 @@ Observer::~Observer()
 }
 
 /*!
-*  \brief connection à QEMU
+*  \brief Connection à QEMU
 *
 *  Methode qui connecte à QEMU via le unix local socket
 *
@@ -61,7 +61,7 @@ bool Observer::connect_to_qemu() {
 }
 
 /*!
-*  \brief disconnection à QEMU
+*  \brief Disconnection à QEMU
 *
 *  Methode qui disconnecte à QEMU
 *
@@ -71,7 +71,7 @@ void Observer::disconnect_from_qemu() {
 }
 
 /*!
-*  \brief  arrêter QEMU
+*  \brief  Arrêter QEMU
 *
 *  Methode qui termine la processus de QEMU
 *
@@ -89,7 +89,7 @@ void Observer::exit_qemu() {
 }
 
 /*!
-*  \brief creer un fichier de ram
+*  \brief Creer un fichier de ram
 *
 *  Methode qui copier les ram dans un fichier
 *

@@ -61,30 +61,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00012"></a>00012 
 <a name="l00013"></a><a class="code" href="classInjector.html">00013</a> <span class="keyword">class </span><a class="code" href="classInjector.html">Injector</a>{
 <a name="l00014"></a>00014 
-<a name="l00015"></a>00015         <span class="keyword">public</span>:
-<a name="l00016"></a>00016         <a class="code" href="classInjector.html#a2db6aa9ac9175351799a7ed19a33b9e5" title="Constructeur.">Injector</a>(<a class="code" href="classLog__creator.html">Log_creator</a> *Log, <span class="keyword">const</span> QString &amp; config_file, <span class="keyword">const</span> QString &amp; file_entry);
-<a name="l00017"></a>00017         <a class="code" href="classInjector.html#a904aaf462f9ebb0462418aa96d5f09fa" title="Destructeur.">~Injector</a>();    
+<a name="l00015"></a>00015 <span class="keyword">public</span>:
+<a name="l00016"></a>00016   <a class="code" href="classInjector.html#a2db6aa9ac9175351799a7ed19a33b9e5" title="Constructeur.">Injector</a>(<a class="code" href="classLog__creator.html">Log_creator</a> *Log, <span class="keyword">const</span> QString &amp; config_file, <span class="keyword">const</span> QString &amp; file_entry);
+<a name="l00017"></a>00017   <a class="code" href="classInjector.html#a904aaf462f9ebb0462418aa96d5f09fa" title="Destructeur.">~Injector</a>();  
 <a name="l00018"></a>00018 
-<a name="l00019"></a>00019         QString <a class="code" href="classInjector.html#a5e00ba8b08dc5fbd87e4607a2687655f" title="return pok_appli_path">get_pok_appli_path</a>();
-<a name="l00020"></a>00020         <span class="keywordtype">void</span> <a class="code" href="classInjector.html#a097acccd64ff95a0763d99c51a7ab2e7" title="preparation de l&amp;#39;environnement">initialize_environment</a>(<span class="keyword">const</span> QString &amp; config_file, <span class="keyword">const</span> QString &amp; file_entry);
-<a name="l00021"></a>00021         <span class="keywordtype">bool</span> <a class="code" href="classInjector.html#a2dab7e4a6ff7daef39596f64ad76ee5e" title="verifier le validité du fichier .fault">fault_file_is_valid</a>(QString id_fault, QString id_cible);
-<a name="l00022"></a>00022         <span class="keywordtype">void</span> <a class="code" href="classInjector.html#ae4a9416054f13e1a5c84c475ae4670d2" title="preparation de l&amp;#39;environnement">initialize_fault_list</a>(<span class="keyword">const</span> QString &amp; file_entry);
-<a name="l00023"></a>00023         <a class="code" href="classFault.html">Fault</a>*  <a class="code" href="classInjector.html#ae60e299c7e4e5cfc2537ddb0a8a56358" title="injection de la faute et generation du code POK">inject</a>();
+<a name="l00019"></a>00019   <span class="keyword">const</span> QString&amp; <a class="code" href="classInjector.html#aefc25309339e5aacf78355e4a6a45d18" title="Getteur pour pok_path.">get_pok_path</a>();
+<a name="l00020"></a>00020   <span class="keywordtype">void</span> <a class="code" href="classInjector.html#a097acccd64ff95a0763d99c51a7ab2e7" title="Preparation de l&amp;#39;environnement.">initialize_environment</a>(<span class="keyword">const</span> QString &amp; config_file, <span class="keyword">const</span> QString &amp; file_entry);
+<a name="l00021"></a>00021   <span class="keywordtype">bool</span> <a class="code" href="classInjector.html#a2dab7e4a6ff7daef39596f64ad76ee5e" title="Injection de la faute et generation du code POK.">fault_file_is_valid</a>(QString id_fault, QString id_cible);
+<a name="l00022"></a>00022   <span class="keywordtype">void</span> <a class="code" href="classInjector.html#ae4a9416054f13e1a5c84c475ae4670d2" title="Preparation de l&amp;#39;environnement.">initialize_fault_list</a>(<span class="keyword">const</span> QString &amp; file_entry);
+<a name="l00023"></a>00023   <a class="code" href="classFault.html">Fault</a>*  <a class="code" href="classInjector.html#ae60e299c7e4e5cfc2537ddb0a8a56358" title="Injection de la faute et generation du code POK.">inject</a>();
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025         <span class="keyword">private</span>:
-<a name="l00026"></a>00026         QFile fichier_config;
-<a name="l00027"></a>00027         QFile fichier_entre;
-<a name="l00028"></a>00028         QString msg;
-<a name="l00029"></a>00029         <a class="code" href="classFault.html">Fault</a> *current_fault;
-<a name="l00030"></a>00030         QString pok_appli_path;
-<a name="l00031"></a>00031         QString injector_code_path_file_name;
-<a name="l00032"></a>00032         QString observer_code_path_file_name;
-<a name="l00033"></a>00033         <a class="code" href="classLog__creator.html">Log_creator</a> *error_handler;
-<a name="l00034"></a>00034         <a class="code" href="classFault__factory.html">Fault_factory</a> *factory;
-<a name="l00035"></a>00035         <a class="code" href="classSource__creator.html">Source_creator</a> *source;
-<a name="l00036"></a>00036 };
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="preprocessor">#endif</span>
+<a name="l00025"></a>00025 <span class="keyword">private</span>:
+<a name="l00026"></a>00026   QString pok_path;
+<a name="l00027"></a>00027   QFile fichier_config;
+<a name="l00028"></a>00028   QFile fichier_entre;
+<a name="l00029"></a>00029   QString msg;
+<a name="l00030"></a>00030   <a class="code" href="classFault.html">Fault</a> *current_fault;
+<a name="l00031"></a>00031   <a class="code" href="classLog__creator.html">Log_creator</a> *error_handler;
+<a name="l00032"></a>00032   <a class="code" href="classFault__factory.html">Fault_factory</a> *factory;
+<a name="l00033"></a>00033   <a class="code" href="classSource__creator.html">Source_creator</a> *source;
+<a name="l00034"></a>00034 };
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -101,7 +99,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Thu Jun 17 2010 16:22:40 pour pok_fault_injector par&nbsp;
+<hr class="footer"/><address class="footer"><small>Généré le Fri Jun 25 2010 18:56:13 pour pok_fault_injector par&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.0 </small></address>
 </body>

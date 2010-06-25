@@ -13,15 +13,13 @@
 
 \begin{DoxyCompactList}\small\item\em Destructeur. \item\end{DoxyCompactList}\item 
 bool \hyperlink{classLog__creator_a452a9ccc31cb82783cd70cc6a8e6b68f}{parse\_\-ram} (const QString \&file\_\-path)
-\begin{DoxyCompactList}\small\item\em cherche dans ram les variables \item\end{DoxyCompactList}\item 
-void \hyperlink{classLog__creator_acc9b8ccb299f9733b4065b61c297b6e0}{write\_\-obs\_\-vars} ()
-\begin{DoxyCompactList}\small\item\em écrit les paramètres dans le rapport. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Cherche dans ram les variables. \item\end{DoxyCompactList}\item 
 void \hyperlink{classLog__creator_a6bbc059eb7b6825439f31f00d182f8b1}{write\_\-error} (const QString \&error\_\-message)
-\begin{DoxyCompactList}\small\item\em écrit les messages des erreurs dans le rapport. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Ecrire les messages des erreurs dans le rapport. \item\end{DoxyCompactList}\item 
 void \hyperlink{classLog__creator_a347fe83a5cd3535f5065649a16bd9ab6}{write\_\-message} (const QString \&message)
-\begin{DoxyCompactList}\small\item\em écrit les messages dans le rapport. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Ecrire les messages dans le rapport. \item\end{DoxyCompactList}\item 
 void \hyperlink{classLog__creator_ae12b4c588f3c5d69182e9c0433f23376}{set\_\-fault} (\hyperlink{classFault}{Fault} $\ast$f)
-\begin{DoxyCompactList}\small\item\em mise à jour de fault \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Mise à jour de fault. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentation des constructeurs et destructeur}
@@ -57,9 +55,9 @@ Constructeur de la classe \hyperlink{classLog__creator}{Log\_\-creator} qui pren
 \label{classLog__creator_a452a9ccc31cb82783cd70cc6a8e6b68f}
 
 
-cherche dans ram les variables 
+Cherche dans ram les variables. 
 
-Methode qui qui cherche dans ram les variables de obs\_\-vars et qui remplie values avec ces dernières
+Methode qui qui cherche dans ram les variables spécifiées dans le fichier .fault et qui écrits leurs valeurs dans le fichier journal
 
 \begin{DoxyReturn}{Renvoie}
 TRUE si les variables ont bien été trouvées, sinon retourne FALSE 
@@ -75,7 +73,7 @@ TRUE si les variables ont bien été trouvées, sinon retourne FALSE
 \label{classLog__creator_ae12b4c588f3c5d69182e9c0433f23376}
 
 
-mise à jour de fault 
+Mise à jour de fault. 
 
 Methode qui met à jour l’attribut fault \hypertarget{classLog__creator_a6bbc059eb7b6825439f31f00d182f8b1}{
 \index{Log\_\-creator@{Log\_\-creator}!write\_\-error@{write\_\-error}}
@@ -88,7 +86,7 @@ Methode qui met à jour l’attribut fault \hypertarget{classLog__creator_a6bbc0
 \label{classLog__creator_a6bbc059eb7b6825439f31f00d182f8b1}
 
 
-écrit les messages des erreurs dans le rapport. 
+Ecrire les messages des erreurs dans le rapport. 
 
 Methode qui écrit les messages des erreur dans le rapport et l’affiche également à l’écran. \hypertarget{classLog__creator_a347fe83a5cd3535f5065649a16bd9ab6}{
 \index{Log\_\-creator@{Log\_\-creator}!write\_\-message@{write\_\-message}}
@@ -101,22 +99,9 @@ Methode qui écrit les messages des erreur dans le rapport et l’affiche égale
 \label{classLog__creator_a347fe83a5cd3535f5065649a16bd9ab6}
 
 
-écrit les messages dans le rapport. 
+Ecrire les messages dans le rapport. 
 
-Methode qui écrit les messages dans le rapport et l’affiche également à l’écran. \hypertarget{classLog__creator_acc9b8ccb299f9733b4065b61c297b6e0}{
-\index{Log\_\-creator@{Log\_\-creator}!write\_\-obs\_\-vars@{write\_\-obs\_\-vars}}
-\index{write\_\-obs\_\-vars@{write\_\-obs\_\-vars}!Log_creator@{Log\_\-creator}}
-\subsubsection[{write\_\-obs\_\-vars}]{\setlength{\rightskip}{0pt plus 5cm}void Log\_\-creator::write\_\-obs\_\-vars (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}
-\label{classLog__creator_acc9b8ccb299f9733b4065b61c297b6e0}
-
-
-écrit les paramètres dans le rapport. 
-
-Methode qui écrit dans le fichier de rapport les paramètres d’observation et leurs valeurs 
+Methode qui écrit les messages dans le rapport et l’affiche également à l’écran. 
 
 La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
 \item 

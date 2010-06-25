@@ -57,21 +57,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLauncher.html#ae4326673c70640ebc88ea697f624d567">Launcher</a> (<a class="el" href="classLog__creator.html">Log_creator</a> *log, const QString &amp;pok_app_path, int loop_nb=1)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructeur.  <a href="#ae4326673c70640ebc88ea697f624d567"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLauncher.html#accbe8ddda09f337abde5fd3e85fe9532">Launcher</a> (<a class="el" href="classLog__creator.html">Log_creator</a> *log, const QString &amp;pok_path, int loop_nb=5)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructeur.  <a href="#accbe8ddda09f337abde5fd3e85fe9532"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fb35def86a53bb0dce1267fe2adf019"></a><!-- doxytag: member="Launcher::~Launcher" ref="a7fb35def86a53bb0dce1267fe2adf019" args="()" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLauncher.html#a7fb35def86a53bb0dce1267fe2adf019">~Launcher</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructeur. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLauncher.html#aa32824612c6a58b3e38235f759b8c9ea">run_qemu</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">lancer QEMU  <a href="#aa32824612c6a58b3e38235f759b8c9ea"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLauncher.html#abd99511c45d8633f2fc7211ba467e2dc">run_qemu</a> (const QString &amp;pok_appli_path)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Lancer QEMU.  <a href="#abd99511c45d8633f2fc7211ba467e2dc"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef18c1ef86b51595e9b71dbc45fd796e"></a><!-- doxytag: member="Launcher::exit_qemu" ref="aef18c1ef86b51595e9b71dbc45fd796e" args="()" -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLauncher.html#aef18c1ef86b51595e9b71dbc45fd796e">exit_qemu</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">arrêter QEMU <br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Arrêter QEMU. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLauncher.html#a0d057d62987a21971eaa9e49856e2327">start_observation</a> (<a class="el" href="classFault.html">Fault</a> *fault)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">commencer l'observation  <a href="#a0d057d62987a21971eaa9e49856e2327"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Commencer l'observation.  <a href="#a0d057d62987a21971eaa9e49856e2327"></a><br/></td></tr>
 </table>
 <hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="ae4326673c70640ebc88ea697f624d567"></a><!-- doxytag: member="Launcher::Launcher" ref="ae4326673c70640ebc88ea697f624d567" args="(Log_creator *log, const QString &amp;pok_app_path, int loop_nb=1)" -->
+<a class="anchor" id="accbe8ddda09f337abde5fd3e85fe9532"></a><!-- doxytag: member="Launcher::Launcher" ref="accbe8ddda09f337abde5fd3e85fe9532" args="(Log_creator *log, const QString &amp;pok_path, int loop_nb=5)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -85,13 +85,13 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const QString &amp;&nbsp;</td>
-          <td class="paramname"> <em>pok_ap_path</em>, </td>
+          <td class="paramname"> <em>pok_path</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&nbsp;</td>
-          <td class="paramname"> <em>loop_nb</em> = <code>1</code></td><td>&nbsp;</td>
+          <td class="paramname"> <em>loop_nb</em> = <code>5</code></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -106,11 +106,9 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Constructeur de la classe <a class="el" href="classLauncher.html">Launcher</a></p>
 <dl><dt><b>Paramètres:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>*Log</em>&nbsp;</td><td>: </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>&amp;pok_ap_path,:</em>&nbsp;</td><td></td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>loop_nb</em>&nbsp;</td><td>: </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>pok_appli_path</em>&nbsp;</td><td>: </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>obs_loops_nb</em>&nbsp;</td><td>: </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>log</em>&nbsp;</td><td>: Le log_creator chargé de l'écriture du rapport </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pok_path</em>&nbsp;</td><td>: Chemin vers le répertoire du code source de pok </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>loop_nb</em>&nbsp;</td><td>: Nombre de fois où l'on récupère la ram </td></tr>
   </table>
   </dd>
 </dl>
@@ -118,14 +116,15 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <hr/><h2>Documentation des fonctions membres</h2>
-<a class="anchor" id="aa32824612c6a58b3e38235f759b8c9ea"></a><!-- doxytag: member="Launcher::run_qemu" ref="aa32824612c6a58b3e38235f759b8c9ea" args="()" -->
+<a class="anchor" id="abd99511c45d8633f2fc7211ba467e2dc"></a><!-- doxytag: member="Launcher::run_qemu" ref="abd99511c45d8633f2fc7211ba467e2dc" args="(const QString &amp;pok_appli_path)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool Launcher::run_qemu </td>
           <td>(</td>
-          <td class="paramname"></td>
+          <td class="paramtype">const QString &amp;&nbsp;</td>
+          <td class="paramname"> <em>pok_appli_path</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -133,7 +132,7 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 <div class="memdoc">
 
-<p>lancer QEMU </p>
+<p>Lancer QEMU. </p>
 <p>Methode qui lance QEMU</p>
 <dl class="return"><dt><b>Renvoie:</b></dt><dd>TRUE si QEMU est lancé, sinon retoune FALSE </dd></dl>
 
@@ -155,7 +154,7 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 <div class="memdoc">
 
-<p>commencer l'observation </p>
+<p>Commencer l'observation. </p>
 <p>Methode qui lance QEMU et la phase d’observation</p>
 <dl><dt><b>Paramètres:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
@@ -185,7 +184,7 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Généré le Thu Jun 17 2010 16:22:40 pour pok_fault_injector par&nbsp;
+<hr class="footer"/><address class="footer"><small>Généré le Fri Jun 25 2010 18:56:13 pour pok_fault_injector par&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.0 </small></address>
 </body>
